@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="high-TACK Custom Merch turns your ideas into keychains, button pins, stickers, and memo magnets." />
+  <title>high-TACK Custom Merch | Make It Yours</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css" />
+  <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+</head>
+<body>
+  <div class="site-noise" aria-hidden="true"></div>
+
+  <header class="site-header" id="home">
+    <nav class="nav-shell" aria-label="Main navigation">
+      <a class="brand-lockup" href="#home" aria-label="high-TACK Custom Merch home">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="brand-wordmark">high-<strong>TACK</strong></span>
+        <span class="brand-subline">custom merch</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
+        <span></span><span></span><span></span>
+        <span class="sr-only">Open navigation menu</span>
+      </button>
+      <div class="site-menu" id="site-menu">
+        <a class="active" href="#home">Home</a>
+        <a href="#products">Our Products</a>
+        <a href="#about">About Us</a>
+        <a href="#contact" class="nav-cta">Contact <span aria-hidden="true">↗</span></a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero-section section-pad">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-line"></span> Your ideas, made tangible</p>
+        <h1>Make It Yours.<br /><em>Make It TACK!</em></h1>
+        <p class="hero-lede">Your ideas, your style, your custom merch. Turn your designs into personalized keychains, button pins, stickers, and memo magnets.</p>
+        <div class="hero-actions">
+          <a class="button button-dark" href="#products">Explore Our Products <span aria-hidden="true">↘</span></a>
+          <a class="button button-light" href="#contact">Order Your Custom Merch <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="hero-proof"><span class="proof-stars" aria-hidden="true">✦ ✦ ✦</span><span>Small-batch joy, made for you</span></div>
+      </div>
+
+      <div class="hero-art" aria-label="Collage of sample custom merchandise" role="img">
+        <div class="art-orbit orbit-one"></div>
+        <div class="art-orbit orbit-two"></div>
+        <div class="art-sticker sticker-main"><span>MAKE</span><strong>IT<br />TACK</strong></div>
+        <div class="art-sticker sticker-pink"><span>YOUR<br />IDEA</span></div>
+        <div class="art-keychain"><div class="key-ring"></div><div class="key-tag">★</div></div>
+        <div class="art-pin"><span>GOOD<br />STUFF</span></div>
+        <div class="art-spark spark-a">✳</div>
+        <div class="art-spark spark-b">✦</div>
+        <p class="art-caption">STICKERS / PINS / KEYCHAINS / MORE</p>
+      </div>
+    </section>
+
+    <section class="marquee-bar" aria-label="Product categories">
+      <div class="marquee-track"><span>MAKE IT PERSONAL</span><span class="marquee-star">✦</span><span>MAKE IT POP</span><span class="marquee-star">✦</span><span>MAKE IT TACK</span><span class="marquee-star">✦</span><span>MAKE IT PERSONAL</span><span class="marquee-star">✦</span></div>
+    </section>
+
+    <section class="video-section section-pad" id="ad">
+      <div class="section-heading split-heading">
+        <div>
+          <p class="eyebrow"><span class="eyebrow-line"></span> See the process</p>
+          <h2>Get to Know<br /><span>high-TACK!</span></h2>
+        </div>
+        <div class="heading-note"><span class="duration-badge">00:30</span><p>Watch how we turn your creative ideas into customized merchandise.</p></div>
+      </div>
+      <div class="video-frame">
+        <video id="promo-video" controls preload="metadata" aria-label="high-TACK 30-second promotional advertisement">
+          <source src="high-tack-ad.mp4" type="video/mp4" />
+          Your browser does not support the video element.
+        </video>
+        <div class="video-fallback" id="video-fallback" hidden>
+          <div class="play-disc" aria-hidden="true">▶</div>
+          <p class="fallback-title">Your 30-second spot goes here.</p>
+          <p>Insert <code>high-tack-ad.mp4</code> beside this page to bring the ad to life.</p>
+        </div>
+        <div class="video-corner-label">HIGH-TACK / AD SPOT / 30 SEC</div>
+      </div>
+    </section>
+
+    <section class="products-section section-pad" id="products">
+      <div class="section-heading products-heading">
+        <div>
+          <p class="eyebrow"><span class="eyebrow-line"></span> Pick your canvas</p>
+          <h2>Made to be<br /><span>all yours.</span></h2>
+        </div>
+        <p class="section-intro">Four tiny ways to make a big impression. Choose a product, bring your artwork, and we’ll help you make it unmistakably yours.</p>
+      </div>
+      <div class="product-grid">
+        <article class="product-card product-pink">
+          <div class="product-art art-keychains"><div class="mini-ring"></div><div class="mini-tag">✦</div><div class="mini-tag mini-tag-two">♥</div></div>
+          <div class="product-meta"><span class="product-number">01 / 04</span><h3>Custom<br />Keychains</h3><p>Personalized keychains featuring your own designs.</p><button class="text-button js-customize" type="button" data-product="Custom Keychains">Customize Now <span aria-hidden="true">↗</span></button></div>
+        </article>
+        <article class="product-card product-yellow">
+          <div class="product-art art-buttons"><div class="button-pin pin-one">HI!</div><div class="button-pin pin-two">★</div><div class="button-pin pin-three">YOU</div></div>
+          <div class="product-meta"><span class="product-number">02 / 04</span><h3>Custom<br />Button Pins</h3><p>Stylish button pins for events, gifts, collections, and personal expression.</p><button class="text-button js-customize" type="button" data-product="Custom Button Pins">Customize Now <span aria-hidden="true">↗</span></button></div>
+        </article>
+        <article class="product-card product-lilac">
+          <div class="product-art art-stickers"><span class="sticker-shape sticker-shape-one">WOW</span><span class="sticker-shape sticker-shape-two">✳</span><span class="sticker-shape sticker-shape-three">TACK</span></div>
+          <div class="product-meta"><span class="product-number">03 / 04</span><h3>Custom<br />Stickers</h3><p>Creative stickers for laptops, bottles, packaging, and more.</p><button class="text-button js-customize" type="button" data-product="Custom Stickers">Customize Now <span aria-hidden="true">↗</span></button></div>
+        </article>
+        <article class="product-card product-mint">
+          <div class="product-art art-magnets"><div class="memo-card">REMEMBER<br /><strong>TO<br />TACK</strong></div><div class="magnet-dot"></div></div>
+          <div class="product-meta"><span class="product-number">04 / 04</span><h3>Custom<br />Memo Magnets</h3><p>Functional and personalized magnets for notes, reminders, and decorations.</p><button class="text-button js-customize" type="button" data-product="Custom Memo Magnets">Customize Now <span aria-hidden="true">↗</span></button></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="about-section section-pad" id="about">
+      <div class="about-stamp" aria-hidden="true"><span>EST.</span><strong>2024</strong><span>CREATIVE GOODS</span></div>
+      <div class="about-copy"><p class="eyebrow"><span class="eyebrow-line"></span> The high-TACK story</p><h2>Good ideas<br /><span>deserve to stick.</span></h2><p>At high-TACK Custom Merch, we bring creativity to life through personalized merchandise. Whether you're creating gifts, souvenirs, event giveaways, or products for your small business, we're here to help make your ideas unique.</p><p class="about-tagline">Your Creativity.<br /><strong>Our Craft.</strong><br />Your Custom Merch.</p></div>
+      <div class="about-side"><div class="side-note"><span class="side-note-number">A / 01</span><p>From first sketch to final piece, we make the details count.</p></div><div class="side-doodle" aria-hidden="true">✳<br /><span>made<br />with<br />intention</span></div></div>
+    </section>
+
+    <section class="contact-section section-pad" id="contact">
+      <div class="contact-intro"><p class="eyebrow"><span class="eyebrow-line"></span> Let’s make something</p><h2>Ready to<br /><em>make it yours?</em></h2><p>Tell us what you’re dreaming up. We’ll get back to you with the next steps.</p><div class="contact-placeholder"><span>FIND US /</span><p>Facebook — @your-handle<br />Instagram — @your-handle<br />Email — hello@your-domain.com<br />Phone — +00 000 000 0000</p><small>Placeholder details — replace with your real contact information.</small></div></div>
+      <form class="inquiry-form" id="inquiry-form" novalidate>
+        <div class="form-topline"><span>INQUIRY FORM</span><span>01 — 04</span></div>
+        <div class="field-grid"><label for="name">Your name <span>*</span><input id="name" name="name" type="text" autocomplete="name" placeholder="e.g. Alex Rivera" required /></label><label for="email">Email address <span>*</span><input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required /></label></div>
+        <label for="product">What are you making? <span>*</span><select id="product" name="product" required><option value="">Select a product</option><option>Custom Keychains</option><option>Custom Button Pins</option><option>Custom Stickers</option><option>Custom Memo Magnets</option><option>Something else</option></select></label>
+        <label for="message">Tell us about your idea <span>*</span><textarea id="message" name="message" rows="5" placeholder="Tell us about quantities, sizes, colors, deadlines, or anything else we should know." required></textarea></label>
+        <button class="button button-dark form-submit" type="submit">Send Inquiry <span aria-hidden="true">↗</span></button>
+        <div class="form-feedback" id="form-feedback" role="status" aria-live="polite"></div>
+        <p class="form-disclaimer">Frontend demo only: actual message delivery requires a backend or form-service integration.</p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-main"><a class="brand-lockup footer-brand" href="#home"><span class="brand-dot" aria-hidden="true"></span><span class="brand-wordmark">high-<strong>TACK</strong></span><span class="brand-subline">custom merch</span></a><p class="footer-tagline">Your Creativity. Our Craft.<br />Your Custom Merch.</p><a class="back-to-top" href="#home">Back to top <span aria-hidden="true">↑</span></a></div>
+    <div class="footer-bottom"><div class="footer-links"><a href="#products">Our Products</a><a href="#about">About Us</a><a href="#contact">Contact</a></div><div class="footer-social">FB / IG / EMAIL — placeholders</div><p>© 2024 high-TACK Custom Merch</p></div>
+  </footer>
+
+  <script>
+    // Small presentation-only behavior stays in JavaScript; Python handles form feedback and validation.
+    const menuToggle = document.querySelector('.menu-toggle');
+    const siteMenu = document.querySelector('.site-menu');
+    menuToggle.addEventListener('click', () => {
+      const open = menuToggle.getAttribute('aria-expanded') === 'true';
+      menuToggle.setAttribute('aria-expanded', String(!open));
+      siteMenu.classList.toggle('is-open', !open);
+    });
+    siteMenu.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
+      menuToggle.setAttribute('aria-expanded', 'false');
+      siteMenu.classList.remove('is-open');
+    }));
+
+    const promoVideo = document.querySelector('#promo-video');
+    const videoFallback = document.querySelector('#video-fallback');
+    const showVideoFallback = () => {
+      promoVideo.hidden = true;
+      videoFallback.hidden = false;
+    };
+    promoVideo.addEventListener('error', showVideoFallback);
+    promoVideo.addEventListener('loadedmetadata', () => { if (promoVideo.duration === 0) showVideoFallback(); });
+    fetch('high-tack-ad.mp4', { method: 'HEAD' })
+      .then((response) => { if (!response.ok) showVideoFallback(); })
+      .catch(showVideoFallback);
+  </script>
+
+  <script type="py">
+"""PyScript interactions for high-TACK's frontend-only inquiry experience."""
+import re
+from pyscript import document, when
+
+def set_feedback(message, kind):
+    feedback = document.querySelector("#form-feedback")
+    feedback.innerText = message
+    feedback.className = f"form-feedback {kind}"
+
+@when("submit", "#inquiry-form")
+def validate_inquiry(event):
+    event.preventDefault()
+    name = document.querySelector("#name").value.strip()
+    email = document.querySelector("#email").value.strip()
+    product = document.querySelector("#product").value.strip()
+    message = document.querySelector("#message").value.strip()
+
+    missing = []
+    if not name:
+        missing.append("your name")
+    if not email:
+        missing.append("your email")
+    if not product:
+        missing.append("a product")
+    if not message:
+        missing.append("a few details")
+    if missing:
+        set_feedback("Please add " + ", ".join(missing) + ".", "error")
+        return
+    if not re.match(r"^[^@\s]+@[^@\s]+\.[^@\s]+$", email):
+        set_feedback("That email looks a little off — please check it and try again.", "error")
+        return
+    set_feedback(f"Thanks, {name}! Your {product.lower()} idea is noted. This frontend demo is ready for a backend or form-service connection.", "success")
+    document.querySelector("#inquiry-form").reset()
+
+@when("click", ".js-customize")
+def choose_product(event):
+    product_name = event.currentTarget.getAttribute("data-product")
+    document.querySelector("#product").value = product_name
+    document.querySelector("#contact").scrollIntoView({"behavior": "smooth"})
+</script>
+</body>
+</html>
