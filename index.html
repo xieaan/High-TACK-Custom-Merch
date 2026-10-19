@@ -5,17 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="high-TACK Custom Merch turns your ideas into keychains, button pins, stickers, and memo magnets." />
   <title>high-TACK Custom Merch | Make It Yours</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css" />
   <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+
 </head>
 <body>
   <div class="site-noise" aria-hidden="true"></div>
 
-  <header class="site-header" id="home">
+<header class="site-header" id="home">
     <nav class="nav-shell" aria-label="Main navigation">
       <a class="brand-lockup" href="#home" aria-label="high-TACK Custom Merch home">
         <span class="brand-dot" aria-hidden="true"></span>
@@ -30,7 +32,9 @@
         <a class="active" href="#home">Home</a>
         <a href="#products">Our Products</a>
         <a href="#about">About Us</a>
-        <a href="#contact" class="nav-cta">Contact <span aria-hidden="true">↗</span></a>
+        <a href="#contact" class="nav-cta">Contact 
+          <span aria-hidden="true">↗</span>
+        </a>
       </div>
     </nav>
   </header>
@@ -38,20 +42,25 @@
   <main>
     <section class="hero-section section-pad">
       <div class="hero-copy">
-        <p class="eyebrow"><span class="eyebrow-line"></span> Your ideas, made tangible</p>
-        <h1>Make It Yours.<br /><em>Make It TACK!</em></h1>
+        <p class="eyebrow">
+          <span class="eyebrow-line"></span> Your ideas, made tangible</p>
+        <h1>Make It Yours.<br/><em>Make It TACK!</em></h1>
         <p class="hero-lede">Your ideas, your style, your custom merch. Turn your designs into personalized keychains, button pins, stickers, and memo magnets.</p>
         <div class="hero-actions">
           <a class="button button-dark" href="#products">Explore Our Products <span aria-hidden="true">↘</span></a>
           <a class="button button-light" href="#contact">Order Your Custom Merch <span aria-hidden="true">↗</span></a>
         </div>
-        <div class="hero-proof"><span class="proof-stars" aria-hidden="true">✦ ✦ ✦</span><span>Small-batch joy, made for you</span></div>
+        <div class="hero-proof">
+          <span class="proof-stars" aria-hidden="true">✦ ✦ ✦</span>
+          <span>Small-batch joy, made for you</span>
+        </div>
       </div>
 
       <div class="hero-art" aria-label="Collage of sample custom merchandise" role="img">
         <div class="art-orbit orbit-one"></div>
         <div class="art-orbit orbit-two"></div>
-        <div class="art-sticker sticker-main"><span>MAKE</span><strong>IT<br />TACK</strong></div>
+        <div class="art-sticker sticker-main">
+          <span>MAKE</span><strong>IT<br />TACK</strong></div>
         <div class="art-sticker sticker-pink"><span>YOUR<br />IDEA</span></div>
         <div class="art-keychain"><div class="key-ring"></div><div class="key-tag">★</div></div>
         <div class="art-pin"><span>GOOD<br />STUFF</span></div>
@@ -61,7 +70,7 @@
       </div>
     </section>
 
-    <section class="marquee-bar" aria-label="Product categories">
+    <section class="marquee-bar" id="marquee-bar" aria-label="Product categories">
       <div class="marquee-track"><span>MAKE IT PERSONAL</span><span class="marquee-star">✦</span><span>MAKE IT POP</span><span class="marquee-star">✦</span><span>MAKE IT TACK</span><span class="marquee-star">✦</span><span>MAKE IT PERSONAL</span><span class="marquee-star">✦</span></div>
     </section>
 
@@ -71,8 +80,11 @@
           <p class="eyebrow"><span class="eyebrow-line"></span> See the process</p>
           <h2>Get to Know<br /><span>high-TACK!</span></h2>
         </div>
-        <div class="heading-note"><span class="duration-badge">00:30</span><p>Watch how we turn your creative ideas into customized merchandise.</p></div>
+        <div class="heading-note"><span class="duration-badge">00:30</span>
+          <p>Watch how we turn your creative ideas into customized merchandise.</p>
+        </div>
       </div>
+
       <div class="video-frame">
         <video id="promo-video" controls preload="metadata" aria-label="high-TACK 30-second promotional advertisement">
           <source src="high-tack-ad.mp4" type="video/mp4" />
@@ -93,41 +105,216 @@
           <p class="eyebrow"><span class="eyebrow-line"></span> Pick your canvas</p>
           <h2>Made to be<br /><span>all yours.</span></h2>
         </div>
-        <p class="section-intro">Four tiny ways to make a big impression. Choose a product, bring your artwork, and we’ll help you make it unmistakably yours.</p>
+        <p class="section-intro">Tailored specifically for school projects, personal accessories, laptops, water bottles, and creative brand freebies.</p>
       </div>
-      <div class="product-grid">
-        <article class="product-card product-pink">
-          <div class="product-art art-keychains"><div class="mini-ring"></div><div class="mini-tag">✦</div><div class="mini-tag mini-tag-two">♥</div></div>
-          <div class="product-meta"><span class="product-number">01 / 04</span><h3>Custom<br />Keychains</h3><p>Personalized keychains featuring your own designs.</p><button class="text-button js-customize" type="button" data-product="Custom Keychains">Customize Now <span aria-hidden="true">↗</span></button></div>
+
+      <div class="filter-tabs" role="tablist">
+        <button class="filter-tab active" data-filter="all" type="button">All Items</button>
+        <button class="filter-tab" data-filter="stickers" type="button">Stickers</button>
+        <button class="filter-tab" data-filter="keychains" type="button">Keychains</button>
+        <button class="filter-tab" data-filter="pins" type="button">Button Pins</button>
+        <button class="filter-tab" data-filter="magnets" type="button">Memo Magnets</button>
+      </div>
+
+      <div class="product-grid" id="product-grid">
+        <!-- Card 1: Vinyl Die-Cut Stickers -->
+        <article class="product-card" data-category="stickers">
+          <div class="product-badge badge-blue">BEST SELLER</div>
+          <div class="product-art product-pink">
+            <div class="art-badge-inner">
+              <span class="art-badge-icon">🧴</span>
+              <strong>LAMINATED DIE-CUT</strong>
+              <small>100% Waterproof</small>
+            </div>
+          </div>
+          
+          <div class="product-meta">
+            <h3>Vinyl Die-Cut Stickers</h3>
+            <p>Premium waterproof, scratch-proof vinyl stickers precision cut for tumblers, hydroflasks, laptops, helmets, and phone cases.</p>
+            <div class="product-tags">
+              <span class="mini-chip">Matte / Glossy</span>
+              <span class="mini-chip">UV Resistant</span>
+              <span class="mini-chip">No residue</span>
+            </div>
+            <div class="product-footer-row">
+              <div class="price-info"><span class="price-label">Starting at</span><strong>₱12 / pc</strong></div>
+              <button class="button button-dark js-customize" type="button" data-product="Vinyl Die-Cut Stickers">Customize ↗</button>
+            </div>
+          </div>
         </article>
-        <article class="product-card product-yellow">
-          <div class="product-art art-buttons"><div class="button-pin pin-one">HI!</div><div class="button-pin pin-two">★</div><div class="button-pin pin-three">YOU</div></div>
-          <div class="product-meta"><span class="product-number">02 / 04</span><h3>Custom<br />Button Pins</h3><p>Stylish button pins for events, gifts, collections, and personal expression.</p><button class="text-button js-customize" type="button" data-product="Custom Button Pins">Customize Now <span aria-hidden="true">↗</span></button></div>
+
+        <!-- Card 2: Aesthetic Sticker Sheets -->
+        <article class="product-card" data-category="stickers">
+          <div class="product-badge badge-purple">ACADEMIC CHOICE</div>
+          <div class="product-art product-yellow">
+            <div class="art-sheet-grid">
+              <span>★</span><span>♥</span><span>🔖</span><span>✨</span>
+            </div>
+          </div>
+          <div class="product-meta">
+            <h3>Aesthetic Sticker Sheets</h3>
+            <p>Kiss-cut sticker sheets tailored for academic journals, project portfolios, binders, planners, and school presentation boards.</p>
+            <div class="product-tags">
+              <span class="mini-chip">A5 / A6 Size</span>
+              <span class="mini-chip">Kiss-Cut</span>
+            </div>
+            <div class="product-footer-row">
+              <div class="price-info"><span class="price-label">Starting at</span><strong>₱35 / sheet</strong></div>
+              <button class="button button-dark js-customize" type="button" data-product="Aesthetic Sticker Sheets">Customize ↗</button>
+            </div>
+          </div>
         </article>
-        <article class="product-card product-lilac">
-          <div class="product-art art-stickers"><span class="sticker-shape sticker-shape-one">WOW</span><span class="sticker-shape sticker-shape-two">✳</span><span class="sticker-shape sticker-shape-three">TACK</span></div>
-          <div class="product-meta"><span class="product-number">03 / 04</span><h3>Custom<br />Stickers</h3><p>Creative stickers for laptops, bottles, packaging, and more.</p><button class="text-button js-customize" type="button" data-product="Custom Stickers">Customize Now <span aria-hidden="true">↗</span></button></div>
+
+        <!-- Card 3: Custom Acrylic Keychains -->
+        <article class="product-card" data-category="keychains">
+          <div class="product-art product-lilac">
+            <div class="art-keychain-showcase">
+              <div class="mini-ring"></div>
+              <div class="mini-tag">🔑</div>
+            </div>
+          </div>
+          <div class="product-meta">
+            <h3>Custom Acrylic Keychains</h3>
+            <p>Crystal-clear acrylic keychains with full-color double-sided print. Sturdy, scratch-proof keyring for bag tags and keys.</p>
+            <div class="product-tags">
+              <span class="mini-chip">3mm Clear Acrylic</span>
+              <span class="mini-chip">Double Sided</span>
+            </div>
+            <div class="product-footer-row">
+              <div class="price-info"><span class="price-label">Starting at</span><strong>₱45 / pc</strong></div>
+              <button class="button button-dark js-customize" type="button" data-product="Custom Acrylic Keychains">Customize ↗</button>
+            </div>
+          </div>
         </article>
-        <article class="product-card product-mint">
-          <div class="product-art art-magnets"><div class="memo-card">REMEMBER<br /><strong>TO<br />TACK</strong></div><div class="magnet-dot"></div></div>
-          <div class="product-meta"><span class="product-number">04 / 04</span><h3>Custom<br />Memo Magnets</h3><p>Functional and personalized magnets for notes, reminders, and decorations.</p><button class="text-button js-customize" type="button" data-product="Custom Memo Magnets">Customize Now <span aria-hidden="true">↗</span></button></div>
+
+        <!-- Card 4: Personalized Button Pins -->
+        <article class="product-card" data-category="pins">
+          <div class="product-art product-mint">
+            <div class="art-pin-showcase">
+              <div class="button-pin pin-one">ORG PIN</div>
+            </div>
+          </div>
+          <div class="product-meta">
+            <h3>Personalized Button Pins</h3>
+            <p>Glossy or matte badge pins perfect for school organizations, events, bag decorations, and merchandise collections.</p>
+            <div class="product-tags">
+              <span class="mini-chip">1.75" / 2.25" Inches</span>
+              <span class="mini-chip">Glossy / Glitter Finish</span>
+            </div>
+            <div class="product-footer-row">
+              <div class="price-info"><span class="price-label">Starting at</span><strong>₱20 / pc</strong></div>
+              <button class="button button-dark js-customize" type="button" data-product="Personalized Button Pins">Customize ↗</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 5: Aesthetic Memo Magnets -->
+        <article class="product-card" data-category="magnets">
+          <div class="product-art product-lilac">
+            <div class="art-magnet-showcase">
+              <div class="memo-card-mini">Strong Magnet</div>
+            </div>
+          </div>
+          <div class="product-meta">
+            <h3>Aesthetic Memo Magnets</h3>
+            <p>Flat flexible or rigid memo magnets for whiteboards, refrigerators, and metal lockers. Great for schedule trackers!</p>
+            <div class="product-tags">
+              <span class="mini-chip">Full Magnetic Back</span>
+              <span class="mini-chip">Water Laminate</span>
+            </div>
+            <div class="product-footer-row">
+              <div class="price-info"><span class="price-label">Starting at</span><strong>₱25 / pc</strong></div>
+              <button class="button button-dark js-customize" type="button" data-product="Aesthetic Memo Magnets">Customize ↗</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 6: Academic Expo Bundle (Special Deal) -->
+        <article class="product-card bundle-card" data-category="bundle">
+          <div class="product-badge badge-yellow">SAVE 20%</div>
+          <div class="product-art product-yellow">
+            <div class="art-bundle-showcase">
+              <span class="bundle-icon">🎓</span>
+              <strong>CEC EXPO BUNDLE</strong>
+              <small>Stickers + Pins + Keychain Pack</small>
+            </div>
+          </div>
+          <div class="product-meta">
+            <h3>Academic Project Combo</h3>
+            <p>Complete merchandise starter pack for entrepreneurship subjects, booth displays, and campus org launches.</p>
+            <div class="product-tags">
+              <span class="mini-chip">10x Stickers</span>
+              <span class="mini-chip">5x Pins</span>
+              <span class="mini-chip">2x Keychains</span>
+            </div>
+            <div class="product-footer-row">
+              <div class="price-info"><span class="price-label">Bundle Price</span><strong>₱249 <del class="old-price">₱315</del></strong></div>
+              <button class="button button-dark js-customize bundle-btn" type="button" data-product="Academic Project Combo">Claim Offer ⚡</button>
+            </div>
+          </div>
         </article>
       </div>
     </section>
 
     <section class="about-section section-pad" id="about">
-      <div class="about-stamp" aria-hidden="true"><span>EST.</span><strong>2024</strong><span>CREATIVE GOODS</span></div>
-      <div class="about-copy"><p class="eyebrow"><span class="eyebrow-line"></span> The high-TACK story</p><h2>Good ideas<br /><span>deserve to stick.</span></h2><p>At high-TACK Custom Merch, we bring creativity to life through personalized merchandise. Whether you're creating gifts, souvenirs, event giveaways, or products for your small business, we're here to help make your ideas unique.</p><p class="about-tagline">Your Creativity.<br /><strong>Our Craft.</strong><br />Your Custom Merch.</p></div>
-      <div class="about-side"><div class="side-note"><span class="side-note-number">A / 01</span><p>From first sketch to final piece, we make the details count.</p></div><div class="side-doodle" aria-hidden="true">✳<br /><span>made<br />with<br />intention</span></div></div>
+      <div class="about-stamp" aria-hidden="true">
+        <span>EST.</span><strong>2024</strong><span>CREATIVE GOODS</span>
+      </div>
+      <div class="about-copy">
+        <p class="eyebrow"><span class="eyebrow-line"></span> The high-TACK story</p>
+        <h2>Good ideas<br /><span>deserve to stick.</span></h2>
+        <p>At high-TACK Custom Merch, we bring creativity to life through personalized merchandise. Whether you're creating gifts, souvenirs, event giveaways, or products for your small business, we're here to help make your ideas unique.</p>
+        <p class="about-tagline">Your Creativity.<br /><strong>Our Craft.</strong><br />Your Custom Merch.</p>
+      </div>
+      <div class="about-side">
+        <div class="side-note">
+          <span class="side-note-number">A / 01</span>
+          <p>From first sketch to final piece, we make the details count.</p>
+        </div>
+        <div class="side-doodle" aria-hidden="true">✳<br />
+          <span>made<br />with<br />intention</span>
+        </div>
+      </div>
     </section>
 
     <section class="contact-section section-pad" id="contact">
-      <div class="contact-intro"><p class="eyebrow"><span class="eyebrow-line"></span> Let’s make something</p><h2>Ready to<br /><em>make it yours?</em></h2><p>Tell us what you’re dreaming up. We’ll get back to you with the next steps.</p><div class="contact-placeholder"><span>FIND US /</span><p>Facebook — @your-handle<br />Instagram — @your-handle<br />Email — hello@your-domain.com<br />Phone — +00 000 000 0000</p><small>Placeholder details — replace with your real contact information.</small></div></div>
+      <div class="contact-intro">
+        <p class="eyebrow">
+          <span class="eyebrow-line"></span> Let’s make something
+        </p>
+          <h2>Ready to<br /><em>make it yours?</em></h2>
+          <p>Tell us what you’re dreaming up. We’ll get back to you with the next steps.</p>
+          <div class="contact-placeholder"><span>FIND US /</span>
+            <p>Facebook — @your-handle<br />Instagram — @your-handle<br />Email — hello@your-domain.com<br />Phone — +00 000 000 0000</p>
+            <small>Placeholder details — replace with your real contact information.</small>
+          </div>
+      </div>
       <form class="inquiry-form" id="inquiry-form" novalidate>
-        <div class="form-topline"><span>INQUIRY FORM</span><span>01 — 04</span></div>
-        <div class="field-grid"><label for="name">Your name <span>*</span><input id="name" name="name" type="text" autocomplete="name" placeholder="e.g. Alex Rivera" required /></label><label for="email">Email address <span>*</span><input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required /></label></div>
-        <label for="product">What are you making? <span>*</span><select id="product" name="product" required><option value="">Select a product</option><option>Custom Keychains</option><option>Custom Button Pins</option><option>Custom Stickers</option><option>Custom Memo Magnets</option><option>Something else</option></select></label>
-        <label for="message">Tell us about your idea <span>*</span><textarea id="message" name="message" rows="5" placeholder="Tell us about quantities, sizes, colors, deadlines, or anything else we should know." required></textarea></label>
+        <div class="form-topline">
+          <span>INQUIRY FORM</span>
+          <span>01 — 04</span>
+        </div>
+        <div class="field-grid">
+          <label for="name">Your name <span>*</span>
+            <input id="name" name="name" type="text" autocomplete="name" placeholder="e.g. Alex Rivera" required />
+          </label>
+          <label for="email">Email address <span>*</span>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required /></label>
+        </div>
+        <label for="product">What are you making? <span>*</span>
+          <select id="product" name="product" required>
+            <option value="">Select a product</option>
+            <option>Vinyl Die-Cut Stickers</option>
+            <option>Aesthetic Sticker Sheets</option>
+            <option>Custom Acrylic Keychains</option>
+            <option>Personalized Button Pins</option>
+            <option>Aesthetic Memo Magnets</option>
+            <option>Academic Project Combo</option>
+            <option>Something else</option></select>
+        </label>
+        <label for="message">Tell us about your idea <span>*</span>
+          <textarea id="message" name="message" rows="5" placeholder="Tell us about quantities, sizes, colors, deadlines, or anything else we should know." required></textarea>
+        </label>
         <button class="button button-dark form-submit" type="submit">Send Inquiry <span aria-hidden="true">↗</span></button>
         <div class="form-feedback" id="form-feedback" role="status" aria-live="polite"></div>
         <p class="form-disclaimer">Frontend demo only: actual message delivery requires a backend or form-service integration.</p>
@@ -136,12 +323,27 @@
   </main>
 
   <footer class="site-footer">
-    <div class="footer-main"><a class="brand-lockup footer-brand" href="#home"><span class="brand-dot" aria-hidden="true"></span><span class="brand-wordmark">high-<strong>TACK</strong></span><span class="brand-subline">custom merch</span></a><p class="footer-tagline">Your Creativity. Our Craft.<br />Your Custom Merch.</p><a class="back-to-top" href="#home">Back to top <span aria-hidden="true">↑</span></a></div>
-    <div class="footer-bottom"><div class="footer-links"><a href="#products">Our Products</a><a href="#about">About Us</a><a href="#contact">Contact</a></div><div class="footer-social">FB / IG / EMAIL — placeholders</div><p>© 2024 high-TACK Custom Merch</p></div>
+    <div class="footer-main">
+      <a class="brand-lockup footer-brand" href="#home">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="brand-wordmark">high-<strong>TACK</strong></span>
+        <span class="brand-subline">custom merch</span>
+      </a>
+      <p class="footer-tagline">Your Creativity. Our Craft.<br />Your Custom Merch.</p>
+      <a class="back-to-top" href="#home">Back to top <span aria-hidden="true">↑</span></a>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-links">
+        <a href="#products">Our Products</a>
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-social">FB / IG / EMAIL — placeholders</div>
+        <p>© 2024 high-TACK Custom Merch</p>
+    </div>
   </footer>
 
   <script>
-    // Small presentation-only behavior stays in JavaScript; Python handles form feedback and validation.
     const menuToggle = document.querySelector('.menu-toggle');
     const siteMenu = document.querySelector('.site-menu');
     menuToggle.addEventListener('click', () => {
@@ -167,47 +369,6 @@
       .catch(showVideoFallback);
   </script>
 
-  <script type="py">
-"""PyScript interactions for high-TACK's frontend-only inquiry experience."""
-import re
-from pyscript import document, when
-
-def set_feedback(message, kind):
-    feedback = document.querySelector("#form-feedback")
-    feedback.innerText = message
-    feedback.className = f"form-feedback {kind}"
-
-@when("submit", "#inquiry-form")
-def validate_inquiry(event):
-    event.preventDefault()
-    name = document.querySelector("#name").value.strip()
-    email = document.querySelector("#email").value.strip()
-    product = document.querySelector("#product").value.strip()
-    message = document.querySelector("#message").value.strip()
-
-    missing = []
-    if not name:
-        missing.append("your name")
-    if not email:
-        missing.append("your email")
-    if not product:
-        missing.append("a product")
-    if not message:
-        missing.append("a few details")
-    if missing:
-        set_feedback("Please add " + ", ".join(missing) + ".", "error")
-        return
-    if not re.match(r"^[^@\s]+@[^@\s]+\.[^@\s]+$", email):
-        set_feedback("That email looks a little off — please check it and try again.", "error")
-        return
-    set_feedback(f"Thanks, {name}! Your {product.lower()} idea is noted. This frontend demo is ready for a backend or form-service connection.", "success")
-    document.querySelector("#inquiry-form").reset()
-
-@when("click", ".js-customize")
-def choose_product(event):
-    product_name = event.currentTarget.getAttribute("data-product")
-    document.querySelector("#product").value = product_name
-    document.querySelector("#contact").scrollIntoView({"behavior": "smooth"})
-</script>
+  <script type="py" src="main.py"></script>
 </body>
 </html>
