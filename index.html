@@ -494,7 +494,33 @@
     const labImage = document.querySelector('#lab-image');
     const labUpload = document.querySelector('#lab-upload');
     const labRemove = document.querySelector('#lab-remove');
-    let artURL = '', artName = '';
+    let artURL = '', artName = '', artDataURL = '';
+    let pendingDesign = null;
+    let expandedInquiryId = null;
+
+    // Save a compact copy of the uploaded artwork so it remains visible in an inquiry
+    // after the page reloads (blob URLs themselves do not persist).
+    function makeStoredImage(file) {
+      return new Promise((resolve) => {
+        const reader = new FileReader();
+        reader.onload = () => {
+          const source = new Image();
+          source.onload = () => {
+            const maxSide = 900;
+            const scale = Math.min(1, maxSide / Math.max(source.naturalWidth, source.naturalHeight));
+            const canvas = document.createElement('canvas');
+            canvas.width = Math.max(1, Math.round(source.naturalWidth * scale));
+            canvas.height = Math.max(1, Math.round(source.naturalHeight * scale));
+            canvas.getContext('2d').drawImage(source, 0, 0, canvas.width, canvas.height);
+            try { resolve(canvas.toDataURL('image/jpeg', 0.78)); } catch (error) { resolve(''); }
+          };
+          source.onerror = () => resolve('');
+          source.src = reader.result;
+        };
+        reader.onerror = () => resolve('');
+        reader.readAsDataURL(file);
+      });
+    }
 
     const readQty = () => Math.min(1000, Math.max(1, parseInt(labQty.value, 10) || 1));
 
@@ -553,7 +579,7 @@
       updateLab();
     });
 
-    labUpload.addEventListener('change', (event) => {
+    labUpload.addEventListener('change', async (event) => {
       event.stopPropagation(); // we call updateLab ourselves so the message below isn't wiped
       const file = labUpload.files[0];
       if (!file) return;
@@ -565,6 +591,7 @@
       if (artURL) URL.revokeObjectURL(artURL);
       artURL = URL.createObjectURL(file);
       artName = file.name;
+      artDataURL = await makeStoredImage(file);
       labImage.src = artURL;
       labRemove.hidden = false;
       updateLab();
@@ -573,6 +600,7 @@
       URL.revokeObjectURL(artURL);
       artURL = '';
       artName = '';
+      artDataURL = '';
       labImage.removeAttribute('src');
       labUpload.value = '';
       labRemove.hidden = true;
@@ -580,11 +608,88 @@
     });
 
     // one summary line used by both the inquiry form and the chat
+    // Create a portable image of the actual customized item (not just the raw upload).
+    // The generated snapshot is saved with the inquiry so it remains visible after reload.
+    async function makeItemPreview(type) {
+      const canvas = document.createElement('canvas');
+      canvas.width = 640;
+      canvas.height = 640;
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return artDataURL || '';
+      ctx.fillStyle = '#f6f4ef';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.strokeStyle = 'rgba(22,22,22,.07)';
+      ctx.lineWidth = 1;
+      for (let i = 0; i <= 640; i += 40) {
+        ctx.beginPath(); ctx.moveTo(i, 0); ctx.lineTo(i, 640); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(0, i); ctx.lineTo(640, i); ctx.stroke();
+      }
+
+      const shapes = {
+        pin: { x: 155, y: 155, w: 330, h: 330, radius: 165, border: 5 },
+        keychain: { x: 205, y: 195, w: 230, h: 290, radius: 28, border: 5 },
+        sticker: { x: 105, y: 190, w: 430, h: 280, radius: 55, border: 12 },
+        magnet: { x: 155, y: 205, w: 330, h: 240, radius: 8, border: 5 }
+      };
+      const shape = shapes[type] || shapes.pin;
+      ctx.save();
+      ctx.shadowColor = '#161616'; ctx.shadowBlur = 0; ctx.shadowOffsetX = 10; ctx.shadowOffsetY = 10;
+      ctx.fillStyle = type === 'keychain' ? '#c6b8ff' : type === 'sticker' ? '#fff' : type === 'magnet' ? '#bce8d0' : '#161616';
+      roundedRect(ctx, shape.x, shape.y, shape.w, shape.h, shape.radius);
+      ctx.fill();
+      ctx.restore();
+      ctx.save();
+      roundedRect(ctx, shape.x + shape.border, shape.y + shape.border, shape.w - shape.border * 2, shape.h - shape.border * 2, Math.max(0, shape.radius - shape.border));
+      ctx.clip();
+      if (artDataURL) {
+        const artwork = await new Promise((resolve) => {
+          const img = new Image(); img.onload = () => resolve(img); img.onerror = () => resolve(null); img.src = artDataURL;
+        });
+        if (artwork) {
+          const scale = Math.max((shape.w - shape.border * 2) / artwork.width, (shape.h - shape.border * 2) / artwork.height);
+          const w = artwork.width * scale, h = artwork.height * scale;
+          ctx.drawImage(artwork, shape.x + (shape.w - w) / 2, shape.y + (shape.h - h) / 2, w, h);
+        } else {
+          ctx.fillStyle = '#bce8d0'; ctx.fillRect(shape.x, shape.y, shape.w, shape.h);
+        }
+      } else {
+        ctx.fillStyle = type === 'pin' ? '#ff4f8b' : type === 'keychain' ? '#c6b8ff' : type === 'sticker' ? '#ffd84d' : '#bce8d0';
+        ctx.fillRect(shape.x, shape.y, shape.w, shape.h);
+        ctx.fillStyle = '#161616'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+        ctx.font = 'bold 34px Arial'; ctx.fillText(labProducts[type].label.toUpperCase(), shape.x + shape.w / 2, shape.y + shape.h / 2, shape.w - 30);
+      }
+      ctx.restore();
+      ctx.strokeStyle = '#161616'; ctx.lineWidth = shape.border; roundedRect(ctx, shape.x, shape.y, shape.w, shape.h, shape.radius); ctx.stroke();
+      if (type === 'keychain') {
+        ctx.beginPath(); ctx.arc(320, 165, 42, 0, Math.PI * 2); ctx.strokeStyle = '#646a70'; ctx.lineWidth = 18; ctx.stroke();
+        ctx.beginPath(); ctx.arc(320, 165, 42, 0, Math.PI * 2); ctx.strokeStyle = '#f6f4ef'; ctx.lineWidth = 5; ctx.stroke();
+      }
+      if (type === 'pin') {
+        ctx.fillStyle = 'rgba(255,255,255,.35)'; ctx.beginPath(); ctx.ellipse(235, 205, 38, 20, -.5, 0, Math.PI * 2); ctx.fill();
+      }
+      ctx.fillStyle = '#6a6865'; ctx.font = 'bold 16px monospace'; ctx.textAlign = 'center';
+      ctx.fillText('HIGH-TACK · PREVIEW', 320, 590);
+      try { return canvas.toDataURL('image/jpeg', .82); } catch (error) { return artDataURL || ''; }
+    }
+
+    function roundedRect(ctx, x, y, w, h, radius) {
+      const r = Math.min(radius, w / 2, h / 2);
+      ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r);
+      ctx.arcTo(x + w, y + h, x, y + h, r); ctx.arcTo(x, y + h, x, y, r);
+      ctx.arcTo(x, y, x + w, y, r); ctx.closePath();
+    }
+
     function designInfo() {
       const { type, qty } = readLab();
+      const estimate = quote(type, qty);
       const what = artName ? 'using uploaded image "' + artName + '"' : 'with artwork to be provided';
-      const note = 'Design idea: ' + qty + ' × ' + labProducts[type].label + ', ' + what + '. Estimated total: ' + peso(quote(type, qty).total) + '. Estimated delivery: ' + deliveryEstimate(qty) + '.';
-      return { type, note, bg: '#f6f4ef' };
+      const note = 'Design idea: ' + qty + ' × ' + labProducts[type].label + ', ' + what + '. Estimated total: ' + peso(estimate.total) + '. Estimated delivery: ' + deliveryEstimate(qty) + '.';
+      return {
+        type, label: labProducts[type].label, product: labProducts[type].option, qty,
+        unitPrice: estimate.unit, discountRate: estimate.rate, discountAmount: estimate.saved,
+        total: estimate.total, delivery: deliveryEstimate(qty), imageName: artName,
+        imageDataURL: artDataURL, previewDataURL: '', note
+      };
     }
     updateLab();
 
@@ -604,8 +709,11 @@
     }
 
     // Sends the design idea into the inquiry form, then scrolls to it
-    document.querySelector('#lab-send').addEventListener('click', () => {
-      const { type, note } = designInfo();
+    document.querySelector('#lab-send').addEventListener('click', async () => {
+      const design = designInfo();
+      const { type, note } = design;
+      design.previewDataURL = await makeItemPreview(type);
+      pendingDesign = design;
       document.querySelector('#product').value = labProducts[type].option;
       const message = document.querySelector('#message');
       const existing = message.value.trim();
@@ -842,7 +950,9 @@
         const card = document.createElement('article');
         card.className = 'inquiry-entry inquiry-entry-clickable';
         card.tabIndex = 0;
-        card.setAttribute('role', 'group');
+        card.setAttribute('role', 'button');
+        card.setAttribute('aria-label', 'View complete inquiry for ' + (item.product || 'custom item'));
+        card.setAttribute('aria-expanded', String(expandedInquiryId === item.id));
         const canChange = timeLeft(item) > 0;
         const top = document.createElement('div'); top.className = 'inquiry-entry-top';
         const product = document.createElement('strong'); product.textContent = item.product || 'General inquiry';
@@ -879,8 +989,61 @@
         }
         card.append(top, name);
         if (custom) card.append(custom);
-        card.append(message, foot);
-        const toggleDetails = () => card.classList.toggle('is-selected');
+        const previewHint = document.createElement('p');
+        previewHint.className = 'inquiry-open-hint';
+        previewHint.textContent = expandedInquiryId === item.id ? '− Hide complete details' : '+ View complete order details';
+        card.append(previewHint);
+
+        if (expandedInquiryId === item.id) {
+          const details = document.createElement('div');
+          details.className = 'inquiry-full-details';
+          const detailTitle = document.createElement('h3');
+          detailTitle.textContent = 'Complete order details';
+          details.append(detailTitle);
+          const design = item.design || null;
+          if (design && (design.previewDataURL || design.imageDataURL)) {
+            const figure = document.createElement('figure');
+            figure.className = 'inquiry-design-preview';
+            const img = document.createElement('img');
+            img.src = design.previewDataURL || design.imageDataURL;
+            img.alt = 'Preview of customized ' + (design.label || item.product) + ' made in Build it. Preview it.';
+            const caption = document.createElement('figcaption');
+            caption.textContent = design.imageName ? 'Customized item preview · ' + design.imageName : 'Customized item preview from Build it. Preview it.';
+            figure.append(img, caption);
+            details.append(figure);
+          } else {
+            const noImage = document.createElement('p');
+            noImage.className = 'inquiry-no-preview';
+            noImage.textContent = design ? 'No image was uploaded for this design. Artwork can be provided later.' : 'No saved Design Lab preview for this inquiry.';
+            details.append(noImage);
+          }
+          const rows = document.createElement('dl');
+          rows.className = 'inquiry-detail-grid';
+          const fields = [
+            ['Customer', item.name || '—'], ['Email', item.email || '—'],
+            ['Product', (design && design.label) || item.product || '—'],
+            ['Quantity', design ? String(design.qty) + ' item(s)' : 'Not specified'],
+            ['Price per piece', design ? peso(design.unitPrice) : 'To be confirmed'],
+            ['Bulk discount', design && design.discountRate ? Math.round(design.discountRate * 100) + '% (' + peso(design.discountAmount) + ')' : 'None estimated'],
+            ['Estimated total', design ? peso(design.total) : 'To be confirmed'],
+            ['Estimated pickup', design ? design.delivery : 'To be confirmed'],
+            ['Submitted', new Date(item.createdAt).toLocaleString()],
+            ['Last edited', item.editedAt ? new Date(item.editedAt).toLocaleString() : 'Not edited']
+          ];
+          fields.forEach(([label, value]) => {
+            const row = document.createElement('div');
+            const dt = document.createElement('dt'); dt.textContent = label;
+            const dd = document.createElement('dd'); dd.textContent = value;
+            row.append(dt, dd); rows.append(row);
+          });
+          details.append(rows);
+          const messageLabel = document.createElement('h4'); messageLabel.className = 'inquiry-message-heading'; messageLabel.textContent = 'Customer message';
+          const fullMessage = document.createElement('p'); fullMessage.className = 'inquiry-entry-message inquiry-full-message'; fullMessage.textContent = item.message || 'No additional message.';
+          details.append(messageLabel, fullMessage);
+          card.append(details);
+        }
+        card.append(foot);
+        const toggleDetails = () => { expandedInquiryId = expandedInquiryId === item.id ? null : item.id; renderInquiries(); };
         card.addEventListener('click', (event) => { if (!event.target.closest('button, input, textarea, select, form')) toggleDetails(); });
         card.addEventListener('keydown', (event) => { if ((event.key === 'Enter' || event.key === ' ') && event.target === card) { event.preventDefault(); toggleDetails(); } });
         inquiryList.append(card);
@@ -929,7 +1092,9 @@
       if (!name || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email) || !product || !message) return;
       const designMatch = message.match(/Design idea:[^\n]*/i);
       const customization = designMatch ? designMatch[0].replace(/^Design idea:\s*/i, '') : '';
-      savedInquiries.push({ id: Date.now(), createdAt: new Date().toISOString(), name, email, product, message, customization });
+      const design = pendingDesign && pendingDesign.product === product ? { ...pendingDesign } : null;
+      savedInquiries.push({ id: Date.now(), createdAt: new Date().toISOString(), name, email, product, message, customization, design });
+      pendingDesign = null;
       savedInquiries = savedInquiries.slice(-100);
       saveInquiries();
       renderInquiries();

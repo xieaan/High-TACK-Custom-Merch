@@ -670,3 +670,21 @@ body.panel-open { overflow: hidden; }
   .video-business-copy h2 { font-size: clamp(3rem, 13vw, 4.8rem); }
   .video-frame { min-height: 0; aspect-ratio: 9 / 16; box-shadow: 6px 6px 0 var(--ink); }
 }
+
+
+/* Expandable customer inquiry details and saved Design Lab artwork */
+.inquiry-entry[role="button"] { cursor: pointer; }
+.inquiry-open-hint { margin: 12px 0 0; color: var(--hot-dark); font: 10px var(--mono); letter-spacing: .03em; }
+.inquiry-full-details { margin-top: 16px; padding-top: 16px; border-top: 1px dashed var(--line); cursor: default; }
+.inquiry-full-details h3 { margin: 0 0 14px; font-size: 18px; letter-spacing: -.03em; }
+.inquiry-design-preview { margin: 0 0 16px; padding: 12px; background: #fff; border: 1px solid var(--line); }
+.inquiry-design-preview img { display: block; width: 100%; max-height: 280px; object-fit: contain; }
+.inquiry-design-preview figcaption { margin-top: 9px; color: var(--muted); font: 10px/1.5 var(--mono); overflow-wrap: anywhere; }
+.inquiry-no-preview { padding: 12px; background: #f2eee7; color: var(--muted); font-size: 12px; line-height: 1.5; }
+.inquiry-detail-grid { display: grid; gap: 0; margin: 0; border-top: 1px solid var(--line); }
+.inquiry-detail-grid > div { display: grid; grid-template-columns: minmax(110px, .8fr) minmax(0, 1.2fr); gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.inquiry-detail-grid dt { color: var(--muted); font: 10px/1.5 var(--mono); text-transform: uppercase; }
+.inquiry-detail-grid dd { margin: 0; font-size: 12px; line-height: 1.5; overflow-wrap: anywhere; }
+.inquiry-message-heading { margin: 16px 0 8px; font-size: 13px; }
+.inquiry-full-message { padding: 12px; background: #fff; border: 1px solid var(--line); }
+@media (max-width: 480px) { .inquiry-detail-grid > div { grid-template-columns: 1fr; gap: 4px; } }
