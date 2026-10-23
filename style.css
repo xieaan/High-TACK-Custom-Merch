@@ -422,98 +422,81 @@ h1 em {
   outline-offset: 5px;
 }
 
-/* Big pink sticker: text sits close together */
-.sticker-main {
-  width: clamp(140px, 33%, 185px);
+/* Floating product pictures (every piece below is draggable) */
+.draggable img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none; /* dragging moves the whole piece, not the picture itself */
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Center piece: the button pin photo, cropped into a round sticker */
+.art-button-pin {
+  width: clamp(150px, 36%, 200px);
   aspect-ratio: 1;
   top: 24%;
   left: 30%;
   transform: translate(var(--dx, 0px), var(--dy, 0px)) rotate(-10deg);
-  background: var(--hot);
+  overflow: hidden;
+  background: #151515;
   border: 2px solid var(--ink);
   border-radius: 50%;
   box-shadow: 8px 8px 0 var(--ink);
 }
-.sticker-main span {
-  font: 10px var(--mono);
-  letter-spacing: 0.15em;
-}
-.sticker-main strong {
-  font-size: 37px;
-  letter-spacing: -0.1em;
-}
-
-.sticker-pink {
-  width: clamp(72px, 16%, 90px);
-  aspect-ratio: 1;
-  left: 11%;
-  bottom: 14%;
-  transform: translate(var(--dx, 0px), var(--dy, 0px)) rotate(15deg);
-  border: 1px solid var(--ink);
-  border-radius: 44% 56% 51% 49%;
-  background: var(--lilac);
-  font: 12px var(--mono);
-  letter-spacing: -0.05em;
-}
-
-/* Keychain: ring is rotated so its gap hides behind the tag */
-.art-keychain {
+.art-button-pin img {
   position: absolute;
-  right: 12%;
-  top: 12%;
-  transform: translate(var(--dx, 0px), var(--dy, 0px)) rotate(15deg);
+  top: -37.8%;
+  left: -95%;
+  width: 290%;
+  max-width: none;
+  height: auto;
 }
-.key-ring {
-  width: 62px;
-  height: 62px;
-  margin-left: 13px;
-  border: 10px solid var(--ink);
-  border-radius: 50%;
-  border-right-color: transparent;
-  transform: rotate(90deg);
-}
-.key-tag {
-  position: relative;
-  z-index: 1;
-  width: 88px;
-  height: 75px;
-  margin-top: -30px;
-  display: grid;
-  place-items: center;
+
+/* Sticker sheet */
+.art-sheet {
+  width: clamp(110px, 25%, 150px);
+  aspect-ratio: 3 / 2;
+  left: 8%;
+  bottom: 12%;
+  transform: translate(var(--dx, 0px), var(--dy, 0px)) rotate(-6deg);
+  overflow: hidden;
+  background: var(--paper);
   border: 2px solid var(--ink);
-  background: var(--lilac);
-  border-radius: 8px 8px 25px 25px;
-  font-size: 27px;
+  border-radius: 6px;
   box-shadow: 5px 5px 0 var(--ink);
 }
 
-.art-pin {
+/* Keychain */
+.art-keychain {
   position: absolute;
-  right: 7%;
-  bottom: 16%;
-  width: 110px;
-  height: 110px;
-  border-radius: 50%;
+  right: 8%;
+  top: 10%;
+  width: clamp(100px, 24%, 130px);
+  aspect-ratio: 1;
+  transform: translate(var(--dx, 0px), var(--dy, 0px)) rotate(12deg);
+  overflow: hidden;
   background: var(--paper);
   border: 2px solid var(--ink);
-  display: grid;
-  place-items: center;
-  text-align: center;
-  font: 12px var(--mono);
-  line-height: 1;
-  transform: translate(var(--dx, 0px), var(--dy, 0px)) rotate(9deg);
-  box-shadow: 6px 6px 0 var(--ink);
+  border-radius: 12px;
+  box-shadow: 5px 5px 0 var(--ink);
 }
-.art-pin::after {
-  content: "";
+
+/* Memo magnet */
+.art-magnet {
   position: absolute;
-  width: 24px;
-  height: 24px;
-  background: var(--hot);
-  border: 1px solid var(--ink);
-  border-radius: 50%;
-  top: 12px;
-  right: 9px;
+  right: 6%;
+  bottom: 14%;
+  width: clamp(120px, 28%, 160px);
+  aspect-ratio: 3 / 2;
+  transform: translate(var(--dx, 0px), var(--dy, 0px)) rotate(8deg);
+  overflow: hidden;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: 8px;
+  box-shadow: 6px 6px 0 var(--ink);
 }
 
 .art-spark {
@@ -587,26 +570,26 @@ h1 em {
     translate: 0 -8px;
   }
 }
-.sticker-main,
-.sticker-pink,
+.art-button-pin,
+.art-sheet,
 .art-keychain,
-.art-pin {
+.art-magnet {
   animation: float 5s ease-in-out infinite;
 }
-.sticker-pink {
+.art-sheet {
   animation-delay: -1.5s;
 }
 .art-keychain {
   animation-delay: -3s;
 }
-.art-pin {
+.art-magnet {
   animation-delay: -4s;
 }
 @media (prefers-reduced-motion: reduce) {
-  .sticker-main,
-  .sticker-pink,
+  .art-button-pin,
+  .art-sheet,
   .art-keychain,
-  .art-pin {
+  .art-magnet {
     animation: none;
   }
 }
@@ -1663,11 +1646,11 @@ h2 {
     margin: 55px 12px 10px 0;
     min-height: 390px;
   }
-  .sticker-main strong {
-    font-size: 31px;
+  .art-button-pin {
+    width: 130px;
   }
   .art-keychain,
-  .art-pin {
+  .art-magnet {
     scale: 0.8;
   }
   .art-hint {
@@ -2899,7 +2882,6 @@ body.panel-open {
   }
 }
 
-/* ===== Order status on the customer's inquiry cards ===== */
 .inquiry-status {
   display: inline-block;
   margin: 8px 0 2px;
