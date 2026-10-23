@@ -666,58 +666,6 @@ h2 {
   font-size: 14px;
   margin: 0;
 }
-.duration-badge {
-  align-self: flex-start;
-  padding: 6px 9px;
-  background: var(--hot);
-  border: 1px solid var(--ink);
-  font: 10px var(--mono);
-  letter-spacing: 0.1em;
-}
-.video-frame {
-  min-height: 540px;
-  aspect-ratio: 16 / 9;
-  position: relative;
-  background: #2c2a2a;
-  border: 1px solid var(--ink);
-  overflow: hidden;
-  box-shadow: var(--shadow);
-}
-.video-frame video,
-.video-fallback {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  inset: 0;
-  object-fit: cover;
-}
-.video-frame video {
-  background: radial-gradient(circle at 44% 42%, #515050, #202020 67%);
-}
-.video-fallback {
-  display: grid;
-  place-items: center;
-  align-content: center;
-  text-align: center;
-  color: var(--paper);
-  padding: 20px;
-  background: linear-gradient(135deg, #363334, #1a1919);
-}
-.video-fallback[hidden] {
-  display: none;
-}
-.play-disc {
-  width: 71px;
-  height: 71px;
-  display: grid;
-  place-items: center;
-  border: 1px solid var(--paper);
-  border-radius: 50%;
-  color: var(--hot);
-  font-size: 22px;
-  padding-left: 4px;
-  margin-bottom: 20px;
-}
 .fallback-title {
   margin: 0 0 8px;
   color: var(--paper);
@@ -1072,7 +1020,6 @@ h2 {
   border-color: var(--hot-dark);
 }
 
-/* ===== DESIGN LAB ===== */
 .lab-section {
   max-width: none;
   background: var(--mint);
@@ -1285,7 +1232,6 @@ h2 {
   display: none;
 }
 
-/* Button pin: round with a glossy shine */
 .lab-stage[data-type="pin"] .lab-item {
   width: 260px;
   height: 260px;
@@ -1302,7 +1248,6 @@ h2 {
   transform: rotate(-28deg);
 }
 
-/* Sticker: blobby die-cut shape with a paper border */
 .lab-stage[data-type="sticker"] .lab-item {
   width: 340px;
   height: 260px;
@@ -1321,7 +1266,6 @@ h2 {
   transform: rotate(-20deg);
 }
 
-/* Keychain: tag with a hole and a ring */
 .lab-stage[data-type="keychain"] .lab-item {
   width: 200px;
   height: 240px;
@@ -1543,13 +1487,6 @@ h2 {
 .form-feedback.success {
   color: #176b49;
 }
-.form-disclaimer {
-  color: var(--muted);
-  font: 15  px var(--mono);
-  line-height: 1.45;
-  margin: 8px 0 0;
-}
-
 .site-footer {
   background: var(--ink);
   color: var(--paper);
@@ -1579,8 +1516,6 @@ h2 {
   border-bottom: 1px solid var(--paper);
   padding-bottom: 7px;
 }
-
-/* Giant outlined wordmark */
 .footer-giant {
   margin: 0 0 28px;
   font-family: var(--sans);
@@ -1651,8 +1586,6 @@ h2 {
     display: none;
   }
 }
-
-/* Mobile menu now starts at 900px so the five nav items never get cramped */
 @media (max-width: 900px) {
   html {
     scroll-padding-top: 72px;
@@ -1747,19 +1680,6 @@ h2 {
   }
   .heading-note {
     margin-top: 26px;
-  }
-  .video-frame {
-    min-height: 220px;
-    box-shadow: 6px 6px 0 var(--ink);
-  }
-  .video-fallback {
-    font-size: 12px;
-  }
-  .play-disc {
-    width: 53px;
-    height: 53px;
-    margin-bottom: 12px;
-    font-size: 17px;
   }
   .products-heading .section-intro,
   .lab-heading .section-intro {
@@ -1932,7 +1852,6 @@ h2 {
     width: 100%;
   }
 }
-/* ===== PRODUCT FILTER: centered results + pop-in ===== */
 .product-grid.is-filtered {
   grid-template-columns: repeat(auto-fit, minmax(210px, 290px));
   justify-content: center;
@@ -1952,8 +1871,6 @@ h2 {
     animation: none;
   }
 }
-
-/* ===== DESIGN LAB EXTRAS: colors, image, quantity, price ===== */
 .lab-item {
   align-content: center;
   gap: 6px;
@@ -2069,8 +1986,6 @@ h2 {
   display: grid;
   gap: 10px;
 }
-
-/* ===== CHAT ===== */
 .chat-link {
   margin-top: 28px;
 }
@@ -2267,7 +2182,7 @@ h2 {
   align-items: center;
   gap: 14px;
   padding: 0 18px 16px;
-  font: 9px var(--mono);
+  font: 15px var(--mono);
   line-height: 1.5;
   color: var(--muted);
 }
@@ -2277,14 +2192,14 @@ h2 {
   border: 0;
   border-bottom: 1px solid var(--ink);
   background: none;
-  font: 9px var(--mono);
+  font: 15px var(--mono);
+  font-weight: bold;
   text-transform: uppercase;
 }
 .chat-clear:hover {
   color: var(--hot-dark);
   border-color: var(--hot-dark);
 }
-
 @media (max-width: 720px) {
   .chat-heading {
     display: block;
@@ -2309,8 +2224,6 @@ h2 {
     width: 100%;
   }
 }
-
-/* ===== IMAGE-ONLY LAB: plain item base, image fills the whole shape, rounded-square keychain ===== */
 .lab-item {
   --item-bg: #f6f4ef;
   --item-fg: #161616;
@@ -2436,7 +2349,7 @@ body.panel-open {
 .panel-intro {
   max-width: 420px;
   color: var(--muted);
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1.6;
 }
 .inquiry-list {
@@ -2675,8 +2588,6 @@ body.panel-open {
   border: 2px solid #646a70;
   box-shadow: inset 1px 1px 2px #fff;
 }
-
-/* ===== Inquiries: edit / cancel within 1 day ===== */
 .inquiry-entry-foot {
   display: flex;
   flex-wrap: wrap;
@@ -2800,7 +2711,8 @@ body.panel-open {
   align-items: center;
   gap: 12px;
   margin-bottom: 14px;
-  font: 9px var(--mono);
+  font: 12px var(--mono);
+  font-weight: bold;
   letter-spacing: 0.1em;
 }
 .video-frame {
@@ -2808,10 +2720,7 @@ body.panel-open {
   min-height: 0;
   aspect-ratio: 9 / 16;
   position: relative;
-  background: #2c2a2a;
-  border: 1px solid var(--ink);
   overflow: hidden;
-  box-shadow: var(--shadow);
 }
 .video-frame video,
 .video-fallback {
@@ -2821,13 +2730,10 @@ body.panel-open {
   inset: 0;
   object-fit: cover;
 }
-.video-frame video {
-  background: radial-gradient(circle at 44% 42%, #515050, #202020 67%);
-}
 .video-caption {
   margin: 18px 0 0;
   color: var(--muted);
-  font: 10px/1.6 var(--mono);
+  font: 13px/1.6 var(--mono);
 }
 .inquiry-customization {
   margin: 10px 0;
@@ -2872,8 +2778,6 @@ body.panel-open {
     box-shadow: 6px 6px 0 var(--ink);
   }
 }
-
-/* Expandable customer inquiry details and saved Design Lab artwork */
 .inquiry-entry[role="button"] {
   cursor: pointer;
 }
@@ -2958,19 +2862,17 @@ body.panel-open {
     gap: 4px;
   }
 }
-
-/* ===== PRODUCT PHOTOS ("Made to be all yours") ===== */
 .product-art.has-photo {
   background: #f8f5ed;
 }
 .product-art.has-photo::before {
-  display: none; /* hide the old dashed circle that framed the CSS drawings */
+  display: none; 
 }
 .product-art.has-photo img {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: contain; /* shows the whole mockup at every screen size */
+  object-fit: contain; 
   transition: transform 0.35s ease;
 }
 .product-card:hover .product-art.has-photo img {
@@ -2995,4 +2897,23 @@ body.panel-open {
   .product-card:hover .product-art.has-photo img {
     transform: none;
   }
+}
+
+/* ===== Order status on the customer's inquiry cards ===== */
+.inquiry-status {
+  display: inline-block;
+  margin: 8px 0 2px;
+  padding: 5px 9px;
+  font: 500 10px/1.4 var(--mono);
+  letter-spacing: 0.06em;
+  border: 1px solid var(--ink);
+}
+.inquiry-status.is-pending {
+  background: #fff7d6;
+}
+.inquiry-status.is-received {
+  background: var(--mint);
+}
+.inquiry-entry:has(.inquiry-status.is-received) {
+  border-color: #1f7a4d;
 }

@@ -96,8 +96,7 @@
       </div>
       <div class="inquiry-panel-content" id="inquiry-panel-content">
         <p class="panel-intro">
-          Your inquiries are saved in this browser. You can edit or cancel an inquiry within 1 day
-          of sending it.
+          You can edit or cancel an inquiry within 1 day of sending it.
         </p>
         <div class="inquiry-list" id="inquiry-list"></div>
         <a class="button button-dark panel-new-inquiry" href="#contact" id="panel-new-inquiry"
@@ -213,7 +212,7 @@
           </div>
           <div class="video-column reveal">
             <div class="video-label-row">
-              <span class="duration-badge">00:30</span><span>HIGH-TACK / BRAND FILM</span>
+              <span>HIGH-TACK HIGHLIGHT</span>
             </div>
             <div class="video-frame">
               <video
@@ -221,19 +220,10 @@
                 controls
                 playsinline
                 preload="metadata"
-                aria-label="high-TACK 30-second promotional advertisement"
+                aria-label="high-TACK promotional advertisement"
               >
-                <source src="high-tack-ad.mp4" type="video/mp4" />
-                Your browser does not support the video element.
+                <source src="ADS.mp4" type="video/mp4" />
               </video>
-              <div class="video-fallback" id="video-fallback" hidden>
-                <div class="play-disc" aria-hidden="true">▶</div>
-                <p class="fallback-title">Your 30-second spot goes here.</p>
-                <p>
-                  Insert <code>high-tack-ad.mp4</code> beside this page to bring the ad to life.
-                </p>
-              </div>
-              <div class="video-corner-label">HIGH-TACK / AD SPOT / 30 SEC</div>
             </div>
             <p class="video-caption">A little look at the creativity behind every custom piece.</p>
           </div>
@@ -510,10 +500,9 @@
           <div class="contact-placeholder">
             <span>FIND US /</span>
             <p>
-              Facebook — @High-Tack-Custom-Merch<br />Instagram — @High-Tack-Custom-Merch<br />Email
+              Facebook — @high-TACK Custom Merch<br />Instagram — @high-TACK Custom Merch<br />Email
               — hightackcustommerch@gmail.com<br />Phone — +63 912 345 6789
             </p>
-            <small>Placeholder details — replace with your real contact information.</small>
           </div>
         </div>
 
@@ -572,10 +561,6 @@
             Send Inquiry <span aria-hidden="true">↗</span>
           </button>
           <div class="form-feedback" id="form-feedback" role="status" aria-live="polite"></div>
-          <p class="form-disclaimer">
-            Frontend demo only: actual message delivery requires a backend or form-service
-            integration.
-          </p>
         </form>
       </section>
 
@@ -612,7 +597,6 @@
             </button>
           </form>
           <div class="chat-foot">
-            <span>Demo: your messages are saved in this browser.</span
             ><button class="chat-clear" id="chat-clear" type="button">Clear chat</button>
           </div>
         </div>
@@ -1434,7 +1418,9 @@
             "View complete inquiry for " + (item.product || "custom item"),
           );
           card.setAttribute("aria-expanded", String(expandedInquiryId === item.id));
-          const canChange = timeLeft(item) > 0;
+          const isReceived = item.status === "received";
+          // once the owner confirms the order, it is completed and can no longer be changed
+          const canChange = !isReceived && timeLeft(item) > 0;
           const top = document.createElement("div");
           top.className = "inquiry-entry-top";
           const product = document.createElement("strong");
@@ -1447,8 +1433,21 @@
             minute: "2-digit",
           });
           top.append(product, date);
+          const statusLine = document.createElement("p");
+          statusLine.className = "inquiry-status " + (isReceived ? "is-received" : "is-pending");
+          statusLine.textContent = isReceived
+            ? "✓ ORDER COMPLETED · Received " +
+              (item.receivedAt
+                ? new Date(item.receivedAt).toLocaleString([], {
+                    month: "short",
+                    day: "numeric",
+                    hour: "numeric",
+                    minute: "2-digit",
+                  })
+                : "")
+            : "● IN PROGRESS · Waiting for the owner to confirm";
           if (editingId === item.id && canChange) {
-            card.append(top, buildEditForm(item));
+            card.append(top, statusLine, buildEditForm(item));
             inquiryList.append(card);
             return;
           }
@@ -1470,9 +1469,11 @@
           note.className = "inquiry-entry-note";
           note.textContent =
             (item.editedAt ? "Edited · " : "") +
-            (canChange
-              ? "You can edit or cancel for " + leftText(timeLeft(item)) + " more"
-              : "Locked: changes are only allowed within 1 day");
+            (isReceived
+              ? "Order completed: no further changes"
+              : canChange
+                ? "You can edit or cancel for " + leftText(timeLeft(item)) + " more"
+                : "Locked: changes are only allowed within 1 day");
           foot.append(note);
           if (canChange) {
             const edit = Object.assign(document.createElement("button"), {
@@ -1505,7 +1506,7 @@
             });
             foot.append(edit, del);
           }
-          card.append(top, name);
+          card.append(top, statusLine, name);
           if (custom) card.append(custom);
           const previewHint = document.createElement("p");
           previewHint.className = "inquiry-open-hint";
@@ -1564,6 +1565,11 @@
               ],
               ["Estimated total", design ? peso(design.total) : "To be confirmed"],
               ["Estimated pickup", design ? design.delivery : "To be confirmed"],
+              ["Order status", isReceived ? "Completed / received" : "In progress"],
+              [
+                "Received on",
+                isReceived && item.receivedAt ? new Date(item.receivedAt).toLocaleString() : "—",
+              ],
               ["Submitted", new Date(item.createdAt).toLocaleString()],
               [
                 "Last edited",
@@ -1689,6 +1695,19 @@
         true,
       );
       renderInquiries();
+
+      // The owner page saves to the same storage. When it marks an order as received,
+      // the browser fires a "storage" event here and the list refreshes by itself.
+      window.addEventListener("storage", (event) => {
+        if (event.key !== INQUIRY_KEY) return;
+        try {
+          savedInquiries = JSON.parse(event.newValue) || [];
+        } catch (error) {
+          return;
+        }
+        if (!Array.isArray(savedInquiries)) savedInquiries = [];
+        renderInquiries();
+      });
       // keep the "time left" and locked states fresh while the panel is open
       setInterval(() => {
         if (activePanel === "inquiries" && editingId === null) renderInquiries();

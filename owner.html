@@ -31,13 +31,6 @@
         font: 700 clamp(2.4rem, 6vw, 4rem)/1 var(--sans);
         letter-spacing: -0.04em;
       }
-      .owner-note {
-        max-width: 360px;
-        margin: 0;
-        color: var(--muted);
-        font: 10px var(--mono);
-        line-height: 1.6;
-      }
       .owner-grid {
         display: grid;
         grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
@@ -144,6 +137,54 @@
       .owner-inquiry-button {
         overflow-wrap: anywhere;
       }
+      .owner-inquiry-item {
+        display: grid;
+        gap: 0;
+      }
+      .owner-inquiry-item .owner-inquiry-button {
+        margin-bottom: 0;
+      }
+      .owner-inquiry-button.is-received {
+        background: #eaf8f0;
+      }
+      .owner-status {
+        display: inline-block;
+        margin-bottom: 8px;
+        padding: 3px 8px;
+        font: 500 10px var(--mono);
+        letter-spacing: 0.06em;
+        border: 1px solid var(--ink);
+      }
+      .owner-status.pending {
+        background: #fff7d6;
+      }
+      .owner-status.done {
+        background: var(--mint);
+      }
+      .owner-received-btn {
+        display: block;
+        width: 100%;
+        padding: 10px 14px;
+        font: 600 12px var(--sans);
+        letter-spacing: 0.04em;
+        color: #fff;
+        background: var(--ink);
+        border: 1px solid var(--ink);
+        border-top: 0;
+        cursor: pointer;
+      }
+      .owner-received-btn:hover {
+        background: var(--hot-dark);
+      }
+      .owner-received-btn.is-done {
+        color: var(--ink);
+        background: var(--mint);
+      }
+      .owner-inquiry-detail .owner-received-btn {
+        width: auto;
+        margin: 4px 0 14px;
+        border-top: 1px solid var(--ink);
+      }
       @media (max-width: 520px) {
         .owner-order-grid {
           grid-template-columns: 1fr;
@@ -163,10 +204,6 @@
           <p class="eyebrow"><span class="eyebrow-line"></span> high-TACK / OWNER ONLY</p>
           <h1>Owner inbox</h1>
         </div>
-        <p class="owner-note">
-          Demo: this page reads the same browser storage as the customer site, so open it in the
-          same browser. A real shop needs a login and a server. Keep this page private.
-        </p>
       </header>
 
       <div class="owner-grid">
@@ -292,6 +329,40 @@
       }
 
       let selectedInquiryId = null;
+      function setReceived(id, received) {
+        const list = read(INQ_KEY);
+        const target = list.find((entry) => entry.id === id);
+        if (!target) return;
+        if (received) {
+          target.status = "received";
+          target.receivedAt = new Date().toISOString();
+        } else {
+          delete target.status;
+          delete target.receivedAt;
+        }
+        write(INQ_KEY, list);
+        renderInquiries();
+      }
+
+      function receivedButton(item) {
+        const done = item.status === "received";
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "owner-received-btn" + (done ? " is-done" : "");
+        button.textContent = done ? "✓ Order completed · Undo" : "Order completed";
+        button.setAttribute(
+          "aria-label",
+          done
+            ? "Order already marked as received. Click to undo."
+            : "Mark this order as received by the customer",
+        );
+        button.addEventListener("click", () => {
+          if (done && !confirm("Mark this order as not received yet?")) return;
+          setReceived(item.id, !done);
+        });
+        return button;
+      }
+
       function renderInquiries() {
         const list = read(INQ_KEY);
         const box = document.querySelector("#inq-list");
@@ -330,12 +401,20 @@
               : (item.message || "").slice(0, 95)) +
             " · " +
             new Date(item.createdAt).toLocaleString();
-          card.append(product, customer, summary);
+          const isDone = item.status === "received";
+          card.classList.toggle("is-received", isDone);
+          const badge = document.createElement("span");
+          badge.className = "owner-status " + (isDone ? "done" : "pending");
+          badge.textContent = isDone ? "✓ ORDER RECEIVED" : "● AWAITING RECEIPT";
+          card.append(badge, product, customer, summary);
           card.addEventListener("click", () => {
             selectedInquiryId = item.id;
             renderInquiries();
           });
-          box.append(card);
+          const wrap = document.createElement("div");
+          wrap.className = "owner-inquiry-item";
+          wrap.append(card, receivedButton(item));
+          box.append(wrap);
         });
         const selected = list.find((item) => item.id === selectedInquiryId) || sorted[0];
         detail.replaceChildren();
@@ -354,6 +433,14 @@
             ? new Date(selected.createdAt).toLocaleString()
             : "Date not available");
         detail.append(heading, customer, date);
+        if (selected.status === "received" && selected.receivedAt) {
+          const receivedOn = document.createElement("p");
+          receivedOn.className = "owner-customization";
+          receivedOn.textContent =
+            "ORDER RECEIVED · " + new Date(selected.receivedAt).toLocaleString();
+          detail.append(receivedOn);
+        }
+        detail.append(receivedButton(selected));
 
         // The customer site saves the Build it. Preview it. snapshot inside selected.design.
         const design = selected.design || null;
