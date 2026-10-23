@@ -1,639 +1,1718 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="high-TACK Custom Merch turns your ideas into keychains, button pins, stickers, and memo magnets." />
-  <meta name="theme-color" content="#f6f4ef" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="high-TACK Custom Merch turns your ideas into keychains, button pins, stickers, and memo magnets."
+    />
+    <meta name="theme-color" content="#f6f4ef" />
 
-  <!-- Link preview info (shown when the page is shared) -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="high-TACK Custom Merch | Make It Yours" />
-  <meta property="og:description" content="Turn your designs into personalized keychains, button pins, stickers, and memo magnets." />
+    <!-- Link preview info (shown when the page is shared) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="high-TACK Custom Merch | Make It Yours" />
+    <meta
+      property="og:description"
+      content="Turn your designs into personalized keychains, button pins, stickers, and memo magnets."
+    />
 
-  <title>high-TACK Custom Merch | Make It Yours</title>
+    <title>high-TACK Custom Merch | Make It Yours</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='26' fill='%23ff4f8b' stroke='%23161616' stroke-width='6'/%3E%3C/svg%3E"
+    />
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
 
-  <!-- Small pink-dot favicon so the browser tab has an icon -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='26' fill='%23ff4f8b' stroke='%23161616' stroke-width='6'/%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css" />
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+  </head>
+  <!-- The "home" anchor lives on the body because the sticky header can't be a scroll target -->
+  <body id="home">
+    <div class="site-noise" aria-hidden="true"></div>
 
-  <!-- Marks the page as "JavaScript is running" so the scroll-reveal effect is safe (content never stays hidden) -->
-  <script>document.documentElement.classList.add('js');</script>
+    <!-- The "tack thread" scroll progress bar -->
+    <div class="tack-progress" aria-hidden="true"><span></span></div>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css" />
-  <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
-</head>
-<!-- The "home" anchor lives on the body because the sticky header can't be a scroll target -->
-<body id="home">
-  <div class="site-noise" aria-hidden="true"></div>
-
-  <!-- The "tack thread" scroll progress bar -->
-  <div class="tack-progress" aria-hidden="true"><span></span></div>
-
-  <header class="site-header">
-    <nav class="nav-shell" aria-label="Main navigation">
-      <a class="brand-lockup" href="#home" aria-label="high-TACK Custom Merch home">
-        <span class="brand-dot" aria-hidden="true"></span>
-        <span class="brand-wordmark">high-<strong>TACK</strong></span>
-        <span class="brand-subline">custom merch</span>
-      </a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
-        <span></span><span></span><span></span>
-        <span class="sr-only">Open navigation menu</span>
-      </button>
-      <div class="site-menu" id="site-menu">
-        <a class="active" href="#home" aria-current="true">Home</a>
-        <a href="#products">Our Products</a>
-        <a href="#lab">Lab</a>
-        <a href="#about">About Us</a>
-        <a href="#contact" class="nav-cta">Contact <span aria-hidden="true">↗</span></a>
-      </div>
-    </nav>
-  </header>
-
-  <main>
-    <section class="hero-section section-pad">
-      <div class="hero-copy">
-        <p class="eyebrow"><span class="eyebrow-line"></span> Your ideas, made tangible</p>
-        <h1>Make It Yours.<br /><em>Make It TACK!</em></h1>
-        <p class="hero-lede">Your ideas, your style, your custom merch. Turn your designs into personalized keychains, button pins, stickers, and memo magnets.</p>
-        <div class="hero-actions">
-          <a class="button button-dark" href="#products">Explore Our Products <span aria-hidden="true">↘</span></a>
-          <a class="button button-light" href="#lab">Try the Design Lab <span aria-hidden="true">↗</span></a>
+    <header class="site-header">
+      <nav class="nav-shell" aria-label="Main navigation">
+        <a class="brand-lockup" href="#home" aria-label="high-TACK Custom Merch home">
+          <span class="brand-dot" aria-hidden="true"></span>
+          <span class="brand-wordmark">high-<strong>TACK</strong></span>
+          <span class="brand-subline">custom merch</span>
+        </a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
+          <span></span><span></span><span></span>
+          <span class="sr-only">Open navigation menu</span>
+        </button>
+        <div class="site-menu" id="site-menu">
+          <a class="active" href="#home" aria-current="true">Home</a>
+          <a href="#products">Our Products</a>
+          <a href="#lab">Lab</a>
+          <button
+            class="nav-panel-trigger"
+            type="button"
+            data-panel="inquiries"
+            aria-controls="side-panel"
+            aria-expanded="false"
+          >
+            <span aria-hidden="true">▤</span> Inquiries
+            <span class="inquiry-count" id="inquiry-count">0</span>
+          </button>
+          <button
+            class="nav-panel-trigger nav-chat-trigger"
+            type="button"
+            data-panel="chat"
+            aria-controls="side-panel"
+            aria-expanded="false"
+          >
+            <span aria-hidden="true">☏</span> Chat with owner
+          </button>
+          <a href="#about">About Us</a>
+          <a href="#contact" class="nav-cta">Contact <span aria-hidden="true">↗</span></a>
         </div>
-        <div class="hero-proof"><span class="proof-stars" aria-hidden="true">✦ ✦ ✦</span><span>Small-batch joy, made for you</span></div>
-      </div>
+      </nav>
+    </header>
 
-      <!-- The stickers marked "draggable" can be moved around -->
-      <div class="hero-art" role="group" aria-label="Interactive sticker collage. Drag the stickers to rearrange them.">
-        <div class="art-orbit orbit-one" aria-hidden="true"></div>
-        <div class="art-orbit orbit-two" aria-hidden="true"></div>
-        <div class="art-sticker sticker-main draggable" tabindex="0" role="button" aria-roledescription="draggable sticker" aria-label="Make it TACK sticker. Drag it, or use the arrow keys to move it."><span>MAKE</span><strong>IT<br />TACK</strong></div>
-        <div class="art-sticker sticker-pink draggable" tabindex="0" role="button" aria-roledescription="draggable sticker" aria-label="Your idea sticker. Drag it, or use the arrow keys to move it."><span>YOUR<br />IDEA</span></div>
-        <div class="art-keychain draggable" tabindex="0" role="button" aria-roledescription="draggable keychain" aria-label="Star keychain. Drag it, or use the arrow keys to move it."><div class="key-ring"></div><div class="key-tag">★</div></div>
-        <div class="art-pin draggable" tabindex="0" role="button" aria-roledescription="draggable pin" aria-label="Good stuff pin. Drag it, or use the arrow keys to move it."><span>GOOD<br />STUFF</span></div>
-        <div class="art-spark spark-a" aria-hidden="true">✳</div>
-        <div class="art-spark spark-b" aria-hidden="true">✦</div>
-        <p class="art-hint" aria-hidden="true">✦ Drag the stickers ✦</p>
-        <p class="art-caption">STICKERS / PINS / KEYCHAINS / MORE</p>
-        <button class="art-reset" type="button">↺ Reset</button>
-      </div>
-    </section>
-
-    <!-- Decorative slogan strip. The script at the bottom repeats this set so the loop is seamless. -->
-    <section class="marquee-bar" aria-label="Brand slogans">
-      <div class="marquee-track" aria-hidden="true" style="padding-right: 31px;"><span>MAKE IT PERSONAL</span><span class="marquee-star">✦</span><span>MAKE IT POP</span><span class="marquee-star">✦</span><span>MAKE IT TACK</span><span class="marquee-star">✦</span></div>
-    </section>
-
-    <section class="video-section section-pad" id="ad">
-      <div class="section-heading split-heading reveal">
+    <div class="panel-backdrop" id="panel-backdrop" hidden></div>
+    <aside class="side-panel" id="side-panel" aria-label="Customer panel" aria-hidden="true">
+      <div class="side-panel-head">
         <div>
-          <p class="eyebrow"><span class="eyebrow-line"></span> See the process</p>
+          <p class="eyebrow"><span class="eyebrow-line"></span> high-TACK / CUSTOMER DESK</p>
+          <h2 id="side-panel-title">Your inquiries</h2>
+        </div>
+        <button class="panel-close" id="panel-close" type="button" aria-label="Close panel">
+          ✕
+        </button>
+      </div>
+      <div class="inquiry-panel-content" id="inquiry-panel-content">
+        <p class="panel-intro">
+          You can edit or cancel an inquiry within 1 day of sending it.
+        </p>
+        <div class="inquiry-list" id="inquiry-list"></div>
+        <a class="button button-dark panel-new-inquiry" href="#contact" id="panel-new-inquiry"
+          >Make an inquiry <span aria-hidden="true">↗</span></a
+        >
+      </div>
+      <div class="chat-panel-content" id="chat-panel-content" hidden></div>
+    </aside>
+
+    <main>
+      <section class="hero-section section-pad">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-line"></span> Your ideas, made tangible</p>
+          <h1>Make It Yours.<br /><em>Make It TACK!</em></h1>
+          <p class="hero-lede">
+            Your ideas, your style, your custom merch. Turn your designs into personalized
+            keychains, button pins, stickers, and memo magnets.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-dark" href="#products"
+              >Explore Our Products <span aria-hidden="true">↘</span></a
+            >
+            <a class="button button-light" href="#lab"
+              >Try the Design Lab <span aria-hidden="true">↗</span></a
+            >
+          </div>
+          <div class="hero-proof">
+            <span class="proof-stars" aria-hidden="true">✦ ✦ ✦</span>
+            <span>Small-batch joy, made for you</span>
+          </div>
+        </div>
+
+        <!-- The stickers marked "draggable" can be moved around -->
+        <div
+          class="hero-art"
+          role="group"
+          aria-label="Interactive product collage. Drag the pictures to rearrange them."
+        >
+          <div class="art-orbit orbit-one" aria-hidden="true"></div>
+          <div class="art-orbit orbit-two" aria-hidden="true"></div>
+          <div
+            class="art-sticker art-button-pin draggable"
+            tabindex="0"
+            role="button"
+            aria-roledescription="draggable picture"
+            aria-label="Button pin. Drag it, or use the arrow keys to move it."
+          >
+            <img src="img/Button-pin.png" alt="" draggable="false" />
+          </div>
+          <div
+            class="art-sticker art-sheet draggable"
+            tabindex="0"
+            role="button"
+            aria-roledescription="draggable picture"
+            aria-label="Sticker sheet. Drag it, or use the arrow keys to move it."
+          >
+            <img src="img/Sticker.png" alt="" draggable="false" />
+          </div>
+          <div
+            class="art-keychain draggable"
+            tabindex="0"
+            role="button"
+            aria-roledescription="draggable picture"
+            aria-label="Keychain. Drag it, or use the arrow keys to move it."
+          >
+            <img src="img/High-TACK Custom Merch Keychain.png" alt="" draggable="false" />
+          </div>
+          <div
+            class="art-magnet draggable"
+            tabindex="0"
+            role="button"
+            aria-roledescription="draggable picture"
+            aria-label="Memo magnet. Drag it, or use the arrow keys to move it."
+          >
+            <img src="img/Glossy High-TACK Memo Magnet.png" alt="" draggable="false" />
+          </div>
+          <div class="art-spark spark-a" aria-hidden="true">✳</div>
+          <div class="art-spark spark-b" aria-hidden="true">✦</div>
+          <p class="art-hint" aria-hidden="true">✦ Drag the stickers ✦</p>
+          <p class="art-caption">STICKERS / PINS / KEYCHAINS / MORE</p>
+          <button class="art-reset" type="button">↺ Reset</button>
+        </div>
+      </section>
+
+      <!-- Decorative slogan strip. The script at the bottom repeats this set so the loop is seamless. -->
+      <section class="marquee-bar" aria-label="Brand slogans">
+        <div class="marquee-track" aria-hidden="true" style="padding-right: 31px">
+          <span>MAKE IT PERSONAL</span><span class="marquee-star">✦</span><span>MAKE IT POP</span
+          ><span class="marquee-star">✦</span><span>MAKE IT TACK</span
+          ><span class="marquee-star">✦</span>
+        </div>
+      </section>
+
+      <section class="video-section section-pad" id="ad">
+        <div class="video-about-grid">
+          <div class="video-business-copy reveal">
+            <p class="eyebrow"><span class="eyebrow-line"></span> Get to know the maker</p>
+            <h2>Good ideas<br /><span>deserve to stick.</span></h2>
+            <p class="video-business-lede">Small ideas can become keepsakes worth holding on to.</p>
+            <p>
+               At high-TACK Custom Merch, we bring creativity to life through personalized merchandise.
+            Whether you're creating gifts, souvenirs, event giveaways, or products for your small
+            business, we're here to help make your ideas unique.
+            </p>
+            <p>
+              Choose your item, share your artwork or idea, and we’ll work with you to bring your
+              custom merch to life.
+            </p>
+            <a class="button button-dark" href="#products"
+              >Explore our products <span aria-hidden="true">↘</span></a
+            >
+          </div>
+          <div class="video-column reveal">
+            <div class="video-label-row">
+              <span>HIGH-TACK HIGHLIGHT</span>
+            </div>
+            <div class="video-frame">
+              <video
+                id="promo-video"
+                controls
+                playsinline
+                preload="metadata"
+                aria-label="high-TACK promotional advertisement"
+              >
+                <source src="ADS.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <p class="video-caption">A little look at the creativity behind every custom piece.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="products-section section-pad" id="products">
+        <div class="section-heading products-heading reveal">
+          <div>
+            <p class="eyebrow"><span class="eyebrow-line"></span> Pick your canvas</p>
+            <h2>Made to be<br /><span>all yours.</span></h2>
+          </div>
+          <p class="section-intro">
+            Four tiny ways to make a big impression. Choose a product, bring your artwork, and we’ll
+            help you make it unmistakably yours.
+          </p>
+        </div>
+        <!-- Product Filter Tabs -->
+        <div class="product-filters" role="group" aria-label="Filter products">
+          <button class="filter-tab active" type="button" data-filter="all" aria-pressed="true">
+            All Products
+          </button>
+
+          <button class="filter-tab" type="button" data-filter="keychains" aria-pressed="false">
+            Keychains
+          </button>
+
+          <button class="filter-tab" type="button" data-filter="button-pins" aria-pressed="false">
+            Button Pins
+          </button>
+
+          <button class="filter-tab" type="button" data-filter="stickers" aria-pressed="false">
+            Stickers
+          </button>
+
+          <button class="filter-tab" type="button" data-filter="memo-magnets" aria-pressed="false">
+            Memo Magnets
+          </button>
+        </div>
+        <div class="product-grid">
+          <article class="product-card product-pink" data-category="keychains">
+            <div class="product-art art-keychains has-photo">
+              <img src="img/High-TACK Custom Merch Keychain.png" alt="Round acrylic high-TACK keychain with a black printed insert and a metal split ring" loading="lazy" width="1536" height="1024" />
+            </div>
+            <div class="product-meta">
+              <span class="product-number">01 / 04</span>
+              <h3>Custom<br />Keychains</h3>
+              <p>Personalized keychains featuring your own designs.</p>
+              <button
+                class="text-button js-customize"
+                type="button"
+                data-product="Custom Keychains"
+              >
+                Customize Now <span aria-hidden="true">↗</span>
+              </button>
+            </div>
+          </article>
+          <article class="product-card product-yellow" data-category="button-pins">
+            <div class="product-art art-buttons has-photo">
+              <img src="img/High-TACK Custom Merch Pin.png" alt="Black high-TACK button pin shown front and back with its metal safety pin" loading="lazy" width="1536" height="1024" />
+            </div>
+            <div class="product-meta">
+              <span class="product-number">02 / 04</span>
+              <h3>Custom<br />Button Pins</h3>
+              <p>Stylish button pins for events, gifts, collections, and personal expression.</p>
+              <button
+                class="text-button js-customize"
+                type="button"
+                data-product="Custom Button Pins"
+              >
+                Customize Now <span aria-hidden="true">↗</span>
+              </button>
+            </div>
+          </article>
+          <article class="product-card product-lilac" data-category="stickers">
+            <div class="product-art art-stickers has-photo">
+              <img src="img/High-TACK Sticker Sheet Mockup.png" alt="Sticker sheet with the high-TACK logo, a speech bubble, a smiley, a sparkle and more" loading="lazy" width="1536" height="1024" />
+            </div>
+            <div class="product-meta">
+              <span class="product-number">03 / 04</span>
+              <h3>Custom<br />Stickers</h3>
+              <p>Creative stickers for laptops, bottles, packaging, and more.</p>
+              <button class="text-button js-customize" type="button" data-product="Custom Stickers">
+                Customize Now <span aria-hidden="true">↗</span>
+              </button>
+            </div>
+          </article>
+          <article class="product-card product-mint" data-category="memo-magnets">
+            <div class="product-art art-magnets has-photo">
+              <img src="img/Glossy High-TACK Memo Magnet.png" alt="Glossy cream high-TACK memo magnet with a pink squiggle and sparkle" loading="lazy" width="1536" height="1024" />
+            </div>
+            <div class="product-meta">
+              <span class="product-number">04 / 04</span>
+              <h3>Custom<br />Memo Magnets</h3>
+              <p>Functional and personalized magnets for notes, reminders, and decorations.</p>
+              <button
+                class="text-button js-customize"
+                type="button"
+                data-product="Custom Memo Magnets"
+              >
+                Customize Now <span aria-hidden="true">↗</span>
+              </button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="lab-section section-pad" id="lab">
+        <div class="section-heading lab-heading reveal">
+          <div>
+            <p class="eyebrow"><span class="eyebrow-line"></span> Try it live</p>
+            <h2>Build it.<br /><span>Preview it.</span></h2>
+          </div>
+          <p class="section-intro">
+            Pick a product, add your image, then set a quantity to see your price. When you love it,
+            send the idea straight to us.
+          </p>
+        </div>
+
+        <div class="lab-grid reveal">
+          <div class="lab-controls" id="lab-controls">
+            <fieldset>
+              <legend>1 — Pick a product</legend>
+              <div class="choice-row">
+                <label class="choice"
+                  ><input type="radio" name="lab-type" value="pin" checked /><span
+                    >Button Pin</span
+                  ></label
+                >
+                <label class="choice"
+                  ><input type="radio" name="lab-type" value="keychain" /><span
+                    >Keychain</span
+                  ></label
+                >
+                <label class="choice"
+                  ><input type="radio" name="lab-type" value="sticker" /><span>Sticker</span></label
+                >
+                <label class="choice"
+                  ><input type="radio" name="lab-type" value="magnet" /><span
+                    >Memo Magnet</span
+                  ></label
+                >
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>2 — Add your image</legend>
+              <div class="choice-row">
+                <label class="choice"
+                  ><input type="file" id="lab-upload" accept="image/*" /><span
+                    >↑ Upload image</span
+                  ></label
+                >
+              </div>
+              <button class="lab-remove" id="lab-remove" type="button" hidden>
+                Remove uploaded image ✕
+              </button>
+              <p class="lab-hint lab-hint-tight">
+                Your image fills the whole item. PNG or JPG, up to 5 MB.
+              </p>
+            </fieldset>
+
+            <div class="lab-field">
+              <label class="lab-legend" for="lab-qty">3 — Quantity</label>
+              <div class="lab-qty">
+                <button class="qty-btn" type="button" data-step="-1" aria-label="Decrease quantity">
+                  −
+                </button>
+                <input
+                  id="lab-qty"
+                  type="number"
+                  inputmode="numeric"
+                  min="1"
+                  max="1000"
+                  value="10"
+                />
+                <button class="qty-btn" type="button" data-step="1" aria-label="Increase quantity">
+                  +
+                </button>
+              </div>
+              <div class="qty-presets" aria-label="Quick quantities">
+                <button type="button" data-qty="10">10</button
+                ><button type="button" data-qty="25">25</button
+                ><button type="button" data-qty="50">50</button
+                ><button type="button" data-qty="100">100</button>
+              </div>
+            </div>
+
+            <dl class="lab-quote">
+              <div>
+                <dt>Price per piece</dt>
+                <dd id="q-unit">₱15</dd>
+              </div>
+              <div>
+                <dt>Quantity</dt>
+                <dd id="q-qty">× 10</dd>
+              </div>
+              <div id="q-disc-row" hidden>
+                <dt>Bulk discount</dt>
+                <dd id="q-disc"></dd>
+              </div>
+              <div class="lab-quote-total">
+                <dt>Estimated total</dt>
+                <dd id="q-total">₱150</dd>
+              </div>
+              <div class="lab-quote-delivery">
+                <dt>Estimated Pickup</dt>
+                <dd id="q-delivery">1 day</dd>
+              </div>
+            </dl>
+            <p class="lab-hint">
+              Bulk discounts: 5% off 25+, 10% off 50+, 15% off 100+. Prices are placeholders; we
+              confirm the final quote with you. Delivery times are estimates.
+            </p>
+
+            <div class="lab-actions">
+              <button class="button button-dark lab-send" id="lab-send" type="button">
+                Use this in my inquiry <span aria-hidden="true">↗</span>
+              </button>
+            </div>
+            <p class="lab-status" id="lab-status" role="status" aria-live="polite"></p>
+          </div>
+
+          <div class="lab-stage" id="lab-stage" data-type="pin">
+            <div class="lab-item" id="lab-item">
+              <span class="lab-art" id="lab-art" hidden
+                ><img id="lab-image" alt="Your uploaded image" hidden /></span
+              ><span id="lab-preview-text" aria-hidden="true"></span>
+            </div>
+            <p class="lab-caption">Preview only — we confirm the final look with you.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="about-section section-pad" id="about">
+        <div class="about-stamp" aria-hidden="true">
+          <img src="img/Custom Merch Showcase.png" alt="high-TACK Custom Merch">
+        </div>
+        <div class="about-copy reveal">
+          <p class="eyebrow"><span class="eyebrow-line"></span> The high-TACK story</p>
           <h2>Get to Know<br /><span>high-TACK!</span></h2>
+          <p>
+            high-TACK Custom Merch is a creative manufacturing enterprise located near the 
+            Cebu Eastern College Inc., established to provide fast, reliable, affordable and
+            high-quality products. The business offers personalized merchandise and creative
+            products such as custom keychains, button pins, memo magnets, aesthetic sticker
+            sheets for projects, and vinyl die-cut stickers for your personal items (e.g. Water bottles,
+            tumblers, helmets, phone cases, and laptops). 
+          </p>
+          <p class="about-tagline">
+            Your Creativity.<br /><strong>Our Craft.</strong><br />Your Custom Merch.
+          </p>
         </div>
-        <div class="heading-note"><span class="duration-badge">00:33</span><p>Watch how we turn your creative ideas into customized merchandise.</p></div>
-      </div>
-      <div class="video-frame reveal">
-        <video id="promo-video" controls playsinline preload="metadata" aria-label="high-TACK 30-second promotional advertisement">
-          <source src="promotional.mp4" type="video/mp4" />
-          Your browser does not support the video element.
-        </video>
-        <div class="video-fallback" id="video-fallback" hidden>
-          <div class="play-disc" aria-hidden="true">▶</div>
-          <p class="fallback-title">Your 30-second spot goes here.</p>
-          <p>Insert <code>promotional.mp4</code> beside this page to bring the ad to life.</p>
-        </div>
-        <div class="video-corner-label">HIGH-TACK / AD SPOT / 33 SEC</div>
-      </div>
-    </section>
-
-    <section class="products-section section-pad" id="products">
-      <div class="section-heading products-heading reveal">
-        <div>
-          <p class="eyebrow"><span class="eyebrow-line"></span> Pick your canvas</p>
-          <h2>Made to be<br /><span>all yours.</span></h2>
-        </div>
-        <p class="section-intro">Four tiny ways to make a big impression. Choose a product, bring your artwork, and we’ll help you make it unmistakably yours.</p>
-      </div>
-
-      <!-- Each card is clickable: the title button (.card-open) stretches over the whole card and opens the popup.
-           data-lab = which Design Lab product to select. data-uses = the "Great for" list, separated by | -->
-      <div class="product-grid">
-        <article class="product-card product-pink" data-product="Custom Keychains" data-lab="keychain" data-uses="Your own artwork and designs|Gifts and souvenirs|Event giveaways|Small-business merch">
-          <div class="product-art art-keychains"><div class="mini-ring"></div><div class="mini-tag">✦</div><div class="mini-tag mini-tag-two">♥</div></div>
-          <div class="product-meta"><span class="product-number">01 / 04</span><h3><button class="card-open" type="button" aria-haspopup="dialog" aria-label="View details: Custom Keychains">Custom<br />Keychains</button></h3><p>Personalized keychains featuring your own designs.</p><button class="text-button js-customize" type="button" data-product="Custom Keychains">Customize Now <span aria-hidden="true">↗</span></button></div>
-        </article>
-        <article class="product-card product-yellow" data-product="Custom Button Pins" data-lab="pin" data-uses="Events|Gifts|Collections|Personal expression">
-          <div class="product-art art-buttons"><div class="button-pin pin-one">HI!</div><div class="button-pin pin-two">★</div><div class="button-pin pin-three">YOU</div></div>
-          <div class="product-meta"><span class="product-number">02 / 04</span><h3><button class="card-open" type="button" aria-haspopup="dialog" aria-label="View details: Custom Button Pins">Custom<br />Button Pins</button></h3><p>Stylish button pins for events, gifts, collections, and personal expression.</p><button class="text-button js-customize" type="button" data-product="Custom Button Pins">Customize Now <span aria-hidden="true">↗</span></button></div>
-        </article>
-        <article class="product-card product-lilac" data-product="Custom Stickers" data-lab="sticker" data-uses="Laptops|Bottles|Packaging|And much more">
-          <div class="product-art art-stickers"><span class="sticker-shape sticker-shape-one">WOW</span><span class="sticker-shape sticker-shape-two">✳</span><span class="sticker-shape sticker-shape-three">TACK</span></div>
-          <div class="product-meta"><span class="product-number">03 / 04</span><h3><button class="card-open" type="button" aria-haspopup="dialog" aria-label="View details: Custom Stickers">Custom<br />Stickers</button></h3><p>Creative stickers for laptops, bottles, packaging, and more.</p><button class="text-button js-customize" type="button" data-product="Custom Stickers">Customize Now <span aria-hidden="true">↗</span></button></div>
-        </article>
-        <article class="product-card product-mint" data-product="Custom Memo Magnets" data-lab="magnet" data-uses="Notes|Reminders|Decorations">
-          <div class="product-art art-magnets"><div class="memo-card">REMEMBER<br /><strong>TO<br />TACK</strong></div><div class="magnet-dot"></div></div>
-          <div class="product-meta"><span class="product-number">04 / 04</span><h3><button class="card-open" type="button" aria-haspopup="dialog" aria-label="View details: Custom Memo Magnets">Custom<br />Memo Magnets</button></h3><p>Functional and personalized magnets for notes, reminders, and decorations.</p><button class="text-button js-customize" type="button" data-product="Custom Memo Magnets">Customize Now <span aria-hidden="true">↗</span></button></div>
-        </article>
-      </div>
-    </section>
-
-    <!-- The Design Lab. Visitors preview an idea, then send it to the inquiry form. -->
-    <section class="lab-section section-pad" id="lab">
-      <div class="section-heading lab-heading reveal">
-        <div>
-          <p class="eyebrow"><span class="eyebrow-line"></span> Try it live</p>
-          <h2>Build it.<br /><span>Preview it.</span></h2>
-        </div>
-        <p class="section-intro">Pick a product, type your words and choose a color. When you love it, send the idea straight to us with one click.</p>
-      </div>
-
-      <div class="lab-grid reveal">
-        <div class="lab-controls" id="lab-controls">
-          <fieldset>
-            <legend>1 — Pick a product</legend>
-            <div class="choice-row">
-              <label class="choice"><input type="radio" name="lab-type" value="pin" checked /><span>Button Pin</span></label>
-              <label class="choice"><input type="radio" name="lab-type" value="keychain" /><span>Keychain</span></label>
-              <label class="choice"><input type="radio" name="lab-type" value="sticker" /><span>Sticker</span></label>
-              <label class="choice"><input type="radio" name="lab-type" value="magnet" /><span>Memo Magnet</span></label>
-            </div>
-          </fieldset>
-
-          <div class="lab-field">
-            <label class="lab-legend" for="lab-text-input">2 — Your words (up to 14 characters)</label>
-            <input id="lab-text-input" type="text" maxlength="14" value="Hi there" autocomplete="off" />
+        <div class="about-side">
+          <div class="side-note">
+            <p>high-TACK Custom Merch accepts single-piece or low-batch custom merchandise orders
+               that offer quality and reasonable price.</p>
+            <p>From first sketch to final piece, we make the details count.</p>
           </div>
-
-          <fieldset>
-            <legend>3 — Pick a color</legend>
-            <div class="swatch-row">
-              <label class="swatch"><input type="radio" name="lab-color" value="Hot Pink" data-bg="#ff4f8b" data-fg="#161616" checked /><span class="swatch-dot" style="background:#ff4f8b"></span><span class="sr-only">Hot Pink</span></label>
-              <label class="swatch"><input type="radio" name="lab-color" value="Sunny Yellow" data-bg="#ffd84d" data-fg="#161616" /><span class="swatch-dot" style="background:#ffd84d"></span><span class="sr-only">Sunny Yellow</span></label>
-              <label class="swatch"><input type="radio" name="lab-color" value="Lilac" data-bg="#c6b8ff" data-fg="#161616" /><span class="swatch-dot" style="background:#c6b8ff"></span><span class="sr-only">Lilac</span></label>
-              <label class="swatch"><input type="radio" name="lab-color" value="Paper White" data-bg="#f6f4ef" data-fg="#161616" /><span class="swatch-dot" style="background:#f6f4ef"></span><span class="sr-only">Paper White</span></label>
-              <label class="swatch"><input type="radio" name="lab-color" value="Ink Black" data-bg="#161616" data-fg="#f6f4ef" /><span class="swatch-dot" style="background:#161616"></span><span class="sr-only">Ink Black</span></label>
-            </div>
-          </fieldset>
-
-          <button class="button button-dark lab-send" id="lab-send" type="button">Use this in my inquiry <span aria-hidden="true">↗</span></button>
-          <p class="lab-status" id="lab-status" role="status" aria-live="polite"></p>
-        </div>
-
-        <div class="lab-stage" id="lab-stage" data-type="pin">
-          <div class="lab-item" id="lab-item"><span id="lab-preview-text">Hi there</span></div>
-          <p class="lab-caption">Preview only — we confirm the final look with you.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="about-section section-pad" id="about">
-      <div class="about-stamp" aria-hidden="true"><span>EST.</span><strong>2024</strong><span>CREATIVE GOODS</span></div>
-      <div class="about-copy reveal"><p class="eyebrow"><span class="eyebrow-line"></span> The high-TACK story</p><h2>Good ideas<br /><span>deserve to stick.</span></h2><p>At high-TACK Custom Merch, we bring creativity to life through personalized merchandise. Whether you're creating gifts, souvenirs, event giveaways, or products for your small business, we're here to help make your ideas unique.</p><p class="about-tagline">Your Creativity.<br /><strong>Our Craft.</strong><br />Your Custom Merch.</p></div>
-      <div class="about-side"><div class="side-note"><span class="side-note-number">A / 01</span><p>From first sketch to final piece, we make the details count.</p></div><div class="side-doodle" aria-hidden="true">✳<br /><span>made<br />with<br />intention</span></div></div>
-    </section>
-
-    <section class="contact-section section-pad" id="contact">
-      <div class="contact-intro reveal"><p class="eyebrow"><span class="eyebrow-line"></span> Let’s make something</p><h2>Ready to<br /><em>make it yours?</em></h2><p>Tell us what you’re dreaming up. We’ll get back to you with the next steps.</p><div class="contact-placeholder"><span>FIND US /</span><p>Facebook — @High-Tack-Custom-Merch<br />Instagram — @High-Tack-Custom-Merch<br />Email — hightackcustommerch@gmail.com<br />Phone — +63 912 345 6789</p><small>Placeholder details — replace with your real contact information.</small></div></div>
-
-      <!-- onsubmit stops the page from reloading if the form is sent before Python has finished loading -->
-      <form class="inquiry-form reveal" id="inquiry-form" novalidate onsubmit="event.preventDefault()" aria-describedby="form-feedback">
-        <div class="form-topline"><span>INQUIRY FORM</span><span>01 — 04</span></div>
-        <div class="field-grid"><label for="name">Your name <span>*</span><input id="name" name="name" type="text" autocomplete="name" placeholder="e.g. Alex Rivera" required /></label><label for="email">Email address <span>*</span><input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required /></label></div>
-        <label for="product">What are you making? <span>*</span><select id="product" name="product" required><option value="">Select a product</option><option>Custom Keychains</option><option>Custom Button Pins</option><option>Custom Stickers</option><option>Custom Memo Magnets</option><option>Something else</option></select></label>
-        <label for="message">Tell us about your idea <span>*</span><textarea id="message" name="message" rows="5" placeholder="Tell us about quantities, sizes, colors, deadlines, or anything else we should know." required></textarea></label>
-        <button class="button button-dark form-submit" type="submit">Send Inquiry <span aria-hidden="true">↗</span></button>
-        <div class="form-feedback" id="form-feedback" role="status" aria-live="polite"></div>
-        <p class="form-disclaimer">Frontend demo only: actual message delivery requires a backend or form-service integration.</p>
-      </form>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="footer-main"><a class="brand-lockup footer-brand" href="#home"><span class="brand-dot" aria-hidden="true"></span><span class="brand-wordmark">high-<strong>TACK</strong></span><span class="brand-subline">custom merch</span></a><p class="footer-tagline">Your Creativity. Our Craft.<br />Your Custom Merch.</p><a class="back-to-top" href="#home">Back to top <span aria-hidden="true">↑</span></a></div>
-    <!-- Giant decorative wordmark -->
-    <p class="footer-giant" aria-hidden="true">high-<span>TACK</span></p>
-    <div class="footer-bottom"><div class="footer-links"><a href="#products">Our Products</a><a href="#lab">Design Lab</a><a href="#about">About Us</a><a href="#contact">Contact</a></div><div class="footer-social">FB / IG / EMAIL — placeholders</div><p>© 2024 high-TACK Custom Merch</p></div>
-  </footer>
-
-  <!-- NEW: the product detail popup. It is filled in by the script below when a card is clicked. -->
-  <dialog class="product-dialog" id="product-dialog" aria-labelledby="dialog-title">
-    <div class="dialog-inner">
-      <button class="dialog-close" id="dialog-close" type="button" aria-label="Close product details">✕</button>
-      <div class="dialog-body">
-        <div class="dialog-art" id="dialog-art"></div>
-        <div class="dialog-text">
-          <span class="dialog-number" id="dialog-number"></span>
-          <h3 id="dialog-title"></h3>
-          <p class="dialog-desc" id="dialog-desc"></p>
-          <p class="dialog-label">Great for</p>
-          <ul class="dialog-uses" id="dialog-uses"></ul>
-          <div class="dialog-actions">
-            <button class="button button-dark" id="dialog-lab" type="button">Preview in the Design Lab <span aria-hidden="true">↗</span></button>
-            <button class="button button-light" id="dialog-inquiry" type="button">Send an inquiry <span aria-hidden="true">↗</span></button>
+          <div class="side-doodle" aria-hidden="true">
+            ✳<br /><span>made<br />with<br />intention</span>
           </div>
         </div>
+      </section>
+
+      <section class="contact-section section-pad" id="contact">
+        <div class="contact-intro reveal">
+          <p class="eyebrow"><span class="eyebrow-line"></span> Let’s make something</p>
+          <h2>Ready to<br /><em>make it yours?</em></h2>
+          <p>Tell us what you’re dreaming up. We’ll get back to you with the next steps.</p>
+          <a class="button button-light chat-link" href="#chat"
+            >Prefer to chat? Message the owner <span aria-hidden="true">↗</span></a
+          >
+          <div class="contact-placeholder">
+            <span>FIND US /</span>
+            <p>
+              Facebook — @high-TACK Custom Merch<br />Instagram — @high-TACK Custom Merch<br />Email
+              — hightackcustommerch@gmail.com<br />Phone — +63 912 345 6789
+            </p>
+          </div>
+        </div>
+
+        <!-- onsubmit stops the page from reloading if the form is sent before Python has finished loading -->
+        <form
+          class="inquiry-form reveal"
+          id="inquiry-form"
+          novalidate
+          onsubmit="event.preventDefault()"
+          aria-describedby="form-feedback"
+        >
+          <div class="form-topline"><span>INQUIRY FORM</span><span>01 — 04</span></div>
+          <div class="field-grid">
+            <label for="name"
+              >Your name <span>*</span
+              ><input
+                id="name"
+                name="name"
+                type="text"
+                autocomplete="name"
+                placeholder="e.g. Alex Rivera"
+                required /></label
+            ><label for="email"
+              >Email address <span>*</span
+              ><input
+                id="email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                placeholder="you@example.com"
+                required
+            /></label>
+          </div>
+          <label for="product"
+            >What are you making? <span>*</span
+            ><select id="product" name="product" required>
+              <option value="">Select a product</option>
+              <option>Custom Keychains</option>
+              <option>Custom Button Pins</option>
+              <option>Custom Stickers</option>
+              <option>Custom Memo Magnets</option>
+              <option>Something else</option>
+            </select></label
+          >
+          <label for="message"
+            >Tell us about your idea <span>*</span
+            ><textarea
+              id="message"
+              name="message"
+              rows="5"
+              placeholder="Tell us about quantities, sizes, colors, deadlines, or anything else we should know."
+              required
+            ></textarea>
+          </label>
+          <button class="button button-dark form-submit" type="submit">
+            Send Inquiry <span aria-hidden="true">↗</span>
+          </button>
+          <div class="form-feedback" id="form-feedback" role="status" aria-live="polite"></div>
+        </form>
+      </section>
+
+      <section class="chat-section section-pad" id="chat">
+        <div class="section-heading chat-heading reveal">
+          <div>
+            <p class="eyebrow"><span class="eyebrow-line"></span> Talk to the maker</p>
+            <h2>Chat with<br /><span>the owner.</span></h2>
+          </div>
+          <p class="section-intro">
+            Questions about prices, timing or artwork? Message us here and the owner will reply.
+          </p>
+        </div>
+        <div class="chat-card reveal">
+          <div class="chat-top">
+            <div class="chat-owner">
+              <span class="chat-avatar" aria-hidden="true">H</span>
+              <div><strong>high-TACK Owner</strong><small>Business owner</small></div>
+            </div>
+          </div>
+          <div class="chat-log" id="chat-log" aria-hidden="false"></div>
+          <p class="sr-only" id="chat-live" aria-live="polite"></p>
+          <div class="chat-quick" id="chat-quick"></div>
+          <form class="chat-compose" id="chat-form" autocomplete="off">
+            <input
+              id="chat-input"
+              type="text"
+              maxlength="500"
+              placeholder="Type your message…"
+              aria-label="Your message"
+            />
+            <button class="button button-dark chat-send" type="submit">
+              Send <span aria-hidden="true">↗</span>
+            </button>
+          </form>
+          <div class="chat-foot">
+            ><button class="chat-clear" id="chat-clear" type="button">Clear chat</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-main">
+        <a class="brand-lockup footer-brand" href="#home"
+          ><span class="brand-dot" aria-hidden="true"></span
+          ><span class="brand-wordmark">high-<strong>TACK</strong></span
+          ><span class="brand-subline">custom merch</span></a
+        >
+        <p class="footer-tagline">Your Creativity. Our Craft.<br />Your Custom Merch.</p>
+        <a class="back-to-top" href="#home">Back to top <span aria-hidden="true">↑</span></a>
       </div>
-    </div>
-  </dialog>
+      <!-- Giant decorative wordmark -->
+      <p class="footer-giant" aria-hidden="true">high-<span>TACK</span></p>
+      <div class="footer-bottom">
+        <div class="footer-links">
+          <a href="#products">Our Products</a><a href="#lab">Design Lab</a
+          ><a href="#about">About Us</a><a href="#contact">Contact</a><a href="#chat">Chat</a>
+        </div>
+        <div class="footer-social">FB / IG / EMAIL - SOCIALS </div>
+        <p>© 2026 high-TACK Custom Merch</p>
+      </div>
+    </footer>
 
-  <script>
-    // Small presentation-only behavior stays in JavaScript; Python handles form feedback and validation.
+    <script>
+      // JavaScript keeps the presentation-only behavior (menu, scroll effects, dragging, image upload,
+      // saved inquiries and chat). PyScript (main.py) owns the interactive logic: product filter tabs,
+      // "Customize Now" buttons, the Design Lab price calculator, and inquiry form validation.
 
-    // ---------- Mobile menu ----------
-    const menuToggle = document.querySelector('.menu-toggle');
-    const siteMenu = document.querySelector('.site-menu');
-    const menuLabel = menuToggle.querySelector('.sr-only');
+      // ---------- Mobile menu ----------
+      const menuToggle = document.querySelector(".menu-toggle");
+      const siteMenu = document.querySelector(".site-menu");
+      const menuLabel = menuToggle.querySelector(".sr-only");
 
-    function setMenu(open) {
-      menuToggle.setAttribute('aria-expanded', String(open));
-      siteMenu.classList.toggle('is-open', open);
-      menuLabel.textContent = open ? 'Close navigation menu' : 'Open navigation menu';
-    }
-
-    menuToggle.addEventListener('click', () => {
-      setMenu(menuToggle.getAttribute('aria-expanded') !== 'true');
-    });
-    siteMenu.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setMenu(false)));
-
-    // Esc closes the menu and puts the keyboard focus back on the button
-    document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape' && menuToggle.getAttribute('aria-expanded') === 'true') {
-        setMenu(false);
-        menuToggle.focus();
+      function setMenu(open) {
+        menuToggle.setAttribute("aria-expanded", String(open));
+        siteMenu.classList.toggle("is-open", open);
+        menuLabel.textContent = open ? "Close navigation menu" : "Open navigation menu";
       }
-    });
 
-    // Clicking anywhere outside the menu closes it
-    document.addEventListener('click', (event) => {
-      if (!siteMenu.contains(event.target) && !menuToggle.contains(event.target)) setMenu(false);
-    });
-
-    // Growing the window to desktop size closes the mobile menu
-    window.matchMedia('(min-width: 901px)').addEventListener('change', (event) => {
-      if (event.matches) setMenu(false);
-    });
-
-    // ---------- Highlight the nav link for the section you are viewing ----------
-    const navLinks = siteMenu.querySelectorAll('a:not(.nav-cta)');
-    // Listed in page order. The last one whose top has passed the "reading line" wins.
-    const spyTargets = [
-      { section: document.querySelector('.hero-section'), href: '#home' },
-      { section: document.querySelector('#ad'),           href: '#home' },     // video section keeps Home lit
-      { section: document.querySelector('#products'),     href: '#products' },
-      { section: document.querySelector('#lab'),          href: '#lab' },
-      { section: document.querySelector('#about'),        href: '#about' },
-      { section: document.querySelector('#contact'),      href: '#contact' }  // no matching link, so nothing is lit
-    ];
-
-    function setActiveLink(href) {
-      navLinks.forEach((link) => {
-        const isActive = link.getAttribute('href') === href;
-        link.classList.toggle('active', isActive);
-        if (isActive) link.setAttribute('aria-current', 'true');
-        else link.removeAttribute('aria-current');
+      menuToggle.addEventListener("click", () => {
+        setMenu(menuToggle.getAttribute("aria-expanded") !== "true");
       });
-    }
+      siteMenu
+        .querySelectorAll("a")
+        .forEach((link) => link.addEventListener("click", () => setMenu(false)));
 
-    function updateActiveLink() {
-      const readingLine = window.innerHeight * 0.35; // 35% down the screen
-      let current = '#home';
-      spyTargets.forEach((target) => {
-        if (target.section.getBoundingClientRect().top <= readingLine) current = target.href;
+      // Esc closes the menu and puts the keyboard focus back on the button
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && menuToggle.getAttribute("aria-expanded") === "true") {
+          setMenu(false);
+          menuToggle.focus();
+        }
       });
-      setActiveLink(current);
-    }
 
-    window.addEventListener('scroll', updateActiveLink, { passive: true });
-    window.addEventListener('resize', updateActiveLink);
-    updateActiveLink();
+      // Clicking anywhere outside the menu closes it
+      document.addEventListener("click", (event) => {
+        if (!siteMenu.contains(event.target) && !menuToggle.contains(event.target)) setMenu(false);
+      });
 
-    // ---------- Tack-thread scroll progress ----------
-    const progressBar = document.querySelector('.tack-progress');
-    function updateProgress() {
-      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-      const amount = maxScroll > 0 ? Math.min(1, window.scrollY / maxScroll) : 0;
-      progressBar.style.setProperty('--progress', amount);
-    }
-    window.addEventListener('scroll', updateProgress, { passive: true });
-    window.addEventListener('resize', updateProgress);
-    updateProgress();
+      // Growing the window to desktop size closes the mobile menu
+      window.matchMedia("(min-width: 901px)").addEventListener("change", (event) => {
+        if (event.matches) setMenu(false);
+      });
 
-    // ---------- Sections fade up when you reach them ----------
-    const revealItems = document.querySelectorAll('.reveal');
-    if ('IntersectionObserver' in window) {
-      const revealer = new IntersectionObserver((entries, observer) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target); // only animate once
+      // ---------- Highlight the nav link for the section you are viewing ----------
+      const navLinks = siteMenu.querySelectorAll("a:not(.nav-cta)");
+      // Listed in page order. The last one whose top has passed the "reading line" wins.
+      const spyTargets = [
+        { section: document.querySelector(".hero-section"), href: "#home" },
+        { section: document.querySelector("#ad"), href: "#home" }, // video section keeps Home lit
+        { section: document.querySelector("#products"), href: "#products" },
+        { section: document.querySelector("#lab"), href: "#lab" },
+        { section: document.querySelector("#about"), href: "#about" },
+        { section: document.querySelector("#contact"), href: "#contact" }, // no matching link, so nothing is lit
+      ];
+
+      function setActiveLink(href) {
+        navLinks.forEach((link) => {
+          const isActive = link.getAttribute("href") === href;
+          link.classList.toggle("active", isActive);
+          if (isActive) link.setAttribute("aria-current", "true");
+          else link.removeAttribute("aria-current");
         });
-      }, { threshold: 0.12 });
-      revealItems.forEach((item) => revealer.observe(item));
-    } else {
-      revealItems.forEach((item) => item.classList.add('is-visible'));
-    }
+      }
 
-    // ---------- Draggable hero stickers ----------
-    const heroArt = document.querySelector('.hero-art');
-    const draggables = heroArt.querySelectorAll('.draggable');
-    const positions = new Map();   // remembers how far each sticker has moved
-    let topLayer = 3;              // the sticker you touch last goes on top
+      function updateActiveLink() {
+        const readingLine = window.innerHeight * 0.35; // 35% down the screen
+        let current = "#home";
+        spyTargets.forEach((target) => {
+          if (target.section.getBoundingClientRect().top <= readingLine) current = target.href;
+        });
+        setActiveLink(current);
+      }
 
-    function moveSticker(el, x, y) {
-      // keep stickers from being flung completely out of the box
-      const limitX = heroArt.clientWidth * 0.45;
-      const limitY = heroArt.clientHeight * 0.45;
-      const safeX = Math.max(-limitX, Math.min(limitX, x));
-      const safeY = Math.max(-limitY, Math.min(limitY, y));
-      positions.set(el, { x: safeX, y: safeY });
-      el.style.setProperty('--dx', safeX + 'px');
-      el.style.setProperty('--dy', safeY + 'px');
-      heroArt.classList.add('has-dragged'); // hides the "Drag the stickers" hint
-    }
+      window.addEventListener("scroll", updateActiveLink, { passive: true });
+      window.addEventListener("resize", updateActiveLink);
+      updateActiveLink();
 
-    draggables.forEach((el) => {
-      positions.set(el, { x: 0, y: 0 });
-      let startX = 0, startY = 0, originX = 0, originY = 0;
+      // ---------- Tack-thread scroll progress ----------
+      const progressBar = document.querySelector(".tack-progress");
+      function updateProgress() {
+        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+        const amount = maxScroll > 0 ? Math.min(1, window.scrollY / maxScroll) : 0;
+        progressBar.style.setProperty("--progress", amount);
+      }
+      window.addEventListener("scroll", updateProgress, { passive: true });
+      window.addEventListener("resize", updateProgress);
+      updateProgress();
 
-      el.addEventListener('pointerdown', (event) => {
-        if (event.button !== undefined && event.button !== 0) return; // left click / touch only
-        el.setPointerCapture(event.pointerId);
-        startX = event.clientX;
-        startY = event.clientY;
-        originX = positions.get(el).x;
-        originY = positions.get(el).y;
-        el.style.zIndex = ++topLayer;
-        el.classList.add('is-dragging');
-      });
+      // ---------- Sections fade up when you reach them ----------
+      const revealItems = document.querySelectorAll(".reveal");
+      if ("IntersectionObserver" in window) {
+        const revealer = new IntersectionObserver(
+          (entries, observer) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target); // only animate once
+            });
+          },
+          { threshold: 0.12 },
+        );
+        revealItems.forEach((item) => revealer.observe(item));
+      } else {
+        revealItems.forEach((item) => item.classList.add("is-visible"));
+      }
 
-      el.addEventListener('pointermove', (event) => {
-        if (!el.classList.contains('is-dragging')) return;
-        moveSticker(el, originX + event.clientX - startX, originY + event.clientY - startY);
-      });
+      // ---------- Draggable hero stickers ----------
+      const heroArt = document.querySelector(".hero-art");
+      const draggables = heroArt.querySelectorAll(".draggable");
+      const positions = new Map(); // remembers how far each sticker has moved
+      let topLayer = 3; // the sticker you touch last goes on top
 
-      const stopDrag = () => el.classList.remove('is-dragging');
-      el.addEventListener('pointerup', stopDrag);
-      el.addEventListener('pointercancel', stopDrag);
+      function moveSticker(el, x, y) {
+        // keep stickers from being flung completely out of the box
+        const limitX = heroArt.clientWidth * 0.45;
+        const limitY = heroArt.clientHeight * 0.45;
+        const safeX = Math.max(-limitX, Math.min(limitX, x));
+        const safeY = Math.max(-limitY, Math.min(limitY, y));
+        positions.set(el, { x: safeX, y: safeY });
+        el.style.setProperty("--dx", safeX + "px");
+        el.style.setProperty("--dy", safeY + "px");
+        heroArt.classList.add("has-dragged"); // hides the "Drag the stickers" hint
+      }
 
-      // keyboard support: arrow keys nudge the focused sticker
-      el.addEventListener('keydown', (event) => {
-        const steps = { ArrowLeft: [-16, 0], ArrowRight: [16, 0], ArrowUp: [0, -16], ArrowDown: [0, 16] };
-        const step = steps[event.key];
-        if (!step) return;
-        event.preventDefault();
-        const current = positions.get(el);
-        el.style.zIndex = ++topLayer;
-        moveSticker(el, current.x + step[0], current.y + step[1]);
-      });
-    });
-
-    heroArt.querySelector('.art-reset').addEventListener('click', () => {
       draggables.forEach((el) => {
         positions.set(el, { x: 0, y: 0 });
-        el.style.setProperty('--dx', '0px');
-        el.style.setProperty('--dy', '0px');
+        let startX = 0,
+          startY = 0,
+          originX = 0,
+          originY = 0;
+
+        el.addEventListener("pointerdown", (event) => {
+          if (event.button !== undefined && event.button !== 0) return; // left click / touch only
+          el.setPointerCapture(event.pointerId);
+          startX = event.clientX;
+          startY = event.clientY;
+          originX = positions.get(el).x;
+          originY = positions.get(el).y;
+          el.style.zIndex = ++topLayer;
+          el.classList.add("is-dragging");
+        });
+
+        el.addEventListener("pointermove", (event) => {
+          if (!el.classList.contains("is-dragging")) return;
+          moveSticker(el, originX + event.clientX - startX, originY + event.clientY - startY);
+        });
+
+        const stopDrag = () => el.classList.remove("is-dragging");
+        el.addEventListener("pointerup", stopDrag);
+        el.addEventListener("pointercancel", stopDrag);
+
+        // keyboard support: arrow keys nudge the focused sticker
+        el.addEventListener("keydown", (event) => {
+          const steps = {
+            ArrowLeft: [-16, 0],
+            ArrowRight: [16, 0],
+            ArrowUp: [0, -16],
+            ArrowDown: [0, 16],
+          };
+          const step = steps[event.key];
+          if (!step) return;
+          event.preventDefault();
+          const current = positions.get(el);
+          el.style.zIndex = ++topLayer;
+          moveSticker(el, current.x + step[0], current.y + step[1]);
+        });
       });
-    });
 
-    // ---------- Design Lab ----------
-    const labStage = document.querySelector('#lab-stage');
-    const labItem = document.querySelector('#lab-item');
-    const labTextInput = document.querySelector('#lab-text-input');
-    const labPreviewText = document.querySelector('#lab-preview-text');
-    const labStatus = document.querySelector('#lab-status');
-
-    // Links each lab product to the option in the inquiry form
-    const labProducts = {
-      pin:      { label: 'Button Pin',  option: 'Custom Button Pins' },
-      keychain: { label: 'Keychain',    option: 'Custom Keychains' },
-      sticker:  { label: 'Sticker',     option: 'Custom Stickers' },
-      magnet:   { label: 'Memo Magnet', option: 'Custom Memo Magnets' }
-    };
-
-    function readLab() {
-      const type = document.querySelector('input[name="lab-type"]:checked').value;
-      const color = document.querySelector('input[name="lab-color"]:checked');
-      const text = labTextInput.value.trim() || 'Your idea';
-      return { type, color, text };
-    }
-
-    function updateLab() {
-      const { type, color, text } = readLab();
-      labStage.dataset.type = type;
-      labItem.style.setProperty('--item-bg', color.dataset.bg);
-      labItem.style.setProperty('--item-fg', color.dataset.fg);
-      labPreviewText.textContent = text;
-      // shorter words get bigger letters
-      const size = text.length <= 4 ? '3.4rem' : text.length <= 8 ? '2.3rem' : '1.55rem';
-      labPreviewText.style.fontSize = size;
-      labStatus.textContent = '';
-    }
-
-    const labControls = document.querySelector('#lab-controls');
-    labControls.addEventListener('input', updateLab);
-    labControls.addEventListener('change', updateLab);
-    updateLab();
-
-    // Gentle 3D tilt that follows the mouse (skipped for people who prefer reduced motion)
-    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      labStage.addEventListener('pointermove', (event) => {
-        const box = labStage.getBoundingClientRect();
-        const x = (event.clientX - box.left) / box.width - 0.5;
-        const y = (event.clientY - box.top) / box.height - 0.5;
-        labItem.style.setProperty('--tilt-x', (-y * 14) + 'deg');
-        labItem.style.setProperty('--tilt-y', (x * 14) + 'deg');
+      heroArt.querySelector(".art-reset").addEventListener("click", () => {
+        draggables.forEach((el) => {
+          positions.set(el, { x: 0, y: 0 });
+          el.style.setProperty("--dx", "0px");
+          el.style.setProperty("--dy", "0px");
+        });
       });
-      labStage.addEventListener('pointerleave', () => {
-        labItem.style.setProperty('--tilt-x', '0deg');
-        labItem.style.setProperty('--tilt-y', '0deg');
-      });
-    }
 
-    // Sends the design idea into the inquiry form, then scrolls to it
-    document.querySelector('#lab-send').addEventListener('click', () => {
-      const { type, color, text } = readLab();
-      const info = labProducts[type];
-      const note = `Design idea: ${info.label} with the words "${text}" in ${color.value}.`;
+      // ---------- Design Lab ----------
+      const labStage = document.querySelector("#lab-stage");
+      const labItem = document.querySelector("#lab-item");
+      const labPreviewText = document.querySelector("#lab-preview-text");
+      const labStatus = document.querySelector("#lab-status");
 
-      document.querySelector('#product').value = info.option;
-      const message = document.querySelector('#message');
-      const existing = message.value.trim();
-      if (!existing) {
-        message.value = note;
-      } else if (!existing.includes(note)) {
-        message.value = existing + '\n\n' + note;
+      // Links each lab product to the option in the inquiry form
+      const labProducts = {
+        pin: { label: "Button Pin", option: "Custom Button Pins" },
+        keychain: { label: "Keychain", option: "Custom Keychains" },
+        sticker: { label: "Sticker", option: "Custom Stickers" },
+        magnet: { label: "Memo Magnet", option: "Custom Memo Magnets" },
+      };
+      const peso = (n) => "₱" + n.toLocaleString("en-PH");
+      const labQty = document.querySelector("#lab-qty");
+      const labArt = document.querySelector("#lab-art");
+      const labImage = document.querySelector("#lab-image");
+      const labUpload = document.querySelector("#lab-upload");
+      const labRemove = document.querySelector("#lab-remove");
+      let artURL = "",
+        artName = "",
+        artDataURL = "";
+      let pendingDesign = null;
+      let expandedInquiryId = null;
+
+      // Save a compact copy of the uploaded artwork so it remains visible in an inquiry
+      // after the page reloads (blob URLs themselves do not persist).
+      function makeStoredImage(file) {
+        return new Promise((resolve) => {
+          const reader = new FileReader();
+          reader.onload = () => {
+            const source = new Image();
+            source.onload = () => {
+              const maxSide = 900;
+              const scale = Math.min(
+                1,
+                maxSide / Math.max(source.naturalWidth, source.naturalHeight),
+              );
+              const canvas = document.createElement("canvas");
+              canvas.width = Math.max(1, Math.round(source.naturalWidth * scale));
+              canvas.height = Math.max(1, Math.round(source.naturalHeight * scale));
+              canvas.getContext("2d").drawImage(source, 0, 0, canvas.width, canvas.height);
+              try {
+                resolve(canvas.toDataURL("image/jpeg", 0.78));
+              } catch (error) {
+                resolve("");
+              }
+            };
+            source.onerror = () => resolve("");
+            source.src = reader.result;
+          };
+          reader.onerror = () => resolve("");
+          reader.readAsDataURL(file);
+        });
       }
 
-      labStatus.textContent = 'Added to the inquiry form below ✓';
-      document.querySelector('#contact').scrollIntoView(); // smooth scrolling comes from the CSS
-    });
+      const readQty = () => Math.min(1000, Math.max(1, parseInt(labQty.value, 10) || 1));
 
-    // ---------- NEW: clickable product cards + detail popup ----------
-    const productDialog = document.querySelector('#product-dialog');
-    const dialogArt = document.querySelector('#dialog-art');
-    const dialogNumber = document.querySelector('#dialog-number');
-    const dialogTitle = document.querySelector('#dialog-title');
-    const dialogDesc = document.querySelector('#dialog-desc');
-    const dialogUses = document.querySelector('#dialog-uses');
-    let currentCard = null;   // the card that is open in the popup
-    let afterClose = null;    // something to do once the popup has closed (like scrolling)
-
-    function openProduct(card) {
-      currentCard = card;
-
-      // Reuse the card's own artwork. The color class (product-pink etc.) keeps its background color.
-      const colorClass = [...card.classList].find((name) => name.startsWith('product-') && name !== 'product-card');
-      dialogArt.className = 'dialog-art ' + colorClass;
-      dialogArt.replaceChildren(card.querySelector('.product-art').cloneNode(true));
-
-      dialogNumber.textContent = card.querySelector('.product-number').textContent;
-      dialogTitle.textContent = card.dataset.product;
-      dialogDesc.textContent = card.querySelector('.product-meta p').textContent;
-      dialogUses.replaceChildren(...card.dataset.uses.split('|').map((text) => {
-        const item = document.createElement('li');
-        item.textContent = text;
-        return item;
-      }));
-
-      if (typeof productDialog.showModal !== 'function') {
-        // very old browsers: fall back to the old behavior and jump to the form
-        document.querySelector('#product').value = card.dataset.product;
-        document.querySelector('#contact').scrollIntoView();
-        return;
+      function readLab() {
+        const type = document.querySelector('input[name="lab-type"]:checked').value;
+        return { type, qty: readQty() };
       }
-      document.documentElement.classList.add('dialog-open'); // stops the page behind from scrolling
-      productDialog.showModal();
-    }
 
-    document.querySelectorAll('.card-open').forEach((button) => {
-      button.addEventListener('click', () => openProduct(button.closest('.product-card')));
-    });
-
-    // Runs for every way of closing (X button, Esc, click outside, or an action button)
-    productDialog.addEventListener('close', () => {
-      document.documentElement.classList.remove('dialog-open');
-      if (afterClose) {
-        const action = afterClose;
-        afterClose = null;
-        action();
+      // Shows or hides the uploaded image on the preview item.
+      // (Product type + price quote are handled by Python in main.py.)
+      function updateLab() {
+        const hasArt = Boolean(artURL);
+        labImage.hidden = !hasArt;
+        labArt.hidden = !hasArt;
+        labItem.classList.toggle("has-image", hasArt);
       }
-    });
 
-    document.querySelector('#dialog-close').addEventListener('click', () => productDialog.close());
-
-    // Clicking the dark area outside the white box closes the popup
-    productDialog.addEventListener('click', (event) => {
-      if (event.target === productDialog) productDialog.close();
-    });
-
-    // Button 1: select this product in the Design Lab and scroll there
-    document.querySelector('#dialog-lab').addEventListener('click', () => {
-      const card = currentCard;
-      afterClose = () => {
-        document.querySelector(`input[name="lab-type"][value="${card.dataset.lab}"]`).checked = true;
+      labUpload.addEventListener("change", async (event) => {
+        event.stopPropagation(); // we call updateLab ourselves so the message below isn't wiped
+        const file = labUpload.files[0];
+        if (!file) return;
+        if (!file.type.startsWith("image/") || file.size > 5 * 1024 * 1024) {
+          labUpload.value = "";
+          labStatus.textContent = "Please choose an image under 5 MB.";
+          return;
+        }
+        if (artURL) URL.revokeObjectURL(artURL);
+        artURL = URL.createObjectURL(file);
+        artName = file.name;
+        artDataURL = await makeStoredImage(file);
+        labImage.src = artURL;
+        labRemove.hidden = false;
         updateLab();
-        document.querySelector('#lab').scrollIntoView();
+      });
+      labRemove.addEventListener("click", () => {
+        URL.revokeObjectURL(artURL);
+        artURL = "";
+        artName = "";
+        artDataURL = "";
+        labImage.removeAttribute("src");
+        labUpload.value = "";
+        labRemove.hidden = true;
+        updateLab();
+      });
+
+      // one summary line used by both the inquiry form and the chat
+      // Create a portable image of the actual customized item (not just the raw upload).
+      // The generated snapshot is saved with the inquiry so it remains visible after reload.
+      async function makeItemPreview(type) {
+        const canvas = document.createElement("canvas");
+        canvas.width = 640;
+        canvas.height = 640;
+        const ctx = canvas.getContext("2d");
+        if (!ctx) return artDataURL || "";
+        ctx.fillStyle = "#f6f4ef";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.strokeStyle = "rgba(22,22,22,.07)";
+        ctx.lineWidth = 1;
+        for (let i = 0; i <= 640; i += 40) {
+          ctx.beginPath();
+          ctx.moveTo(i, 0);
+          ctx.lineTo(i, 640);
+          ctx.stroke();
+          ctx.beginPath();
+          ctx.moveTo(0, i);
+          ctx.lineTo(640, i);
+          ctx.stroke();
+        }
+
+        const shapes = {
+          pin: { x: 155, y: 155, w: 330, h: 330, radius: 165, border: 5 },
+          keychain: { x: 205, y: 195, w: 230, h: 290, radius: 28, border: 5 },
+          sticker: { x: 105, y: 190, w: 430, h: 280, radius: 55, border: 12 },
+          magnet: { x: 155, y: 205, w: 330, h: 240, radius: 8, border: 5 },
+        };
+        const shape = shapes[type] || shapes.pin;
+        ctx.save();
+        ctx.shadowColor = "#161616";
+        ctx.shadowBlur = 0;
+        ctx.shadowOffsetX = 10;
+        ctx.shadowOffsetY = 10;
+        ctx.fillStyle =
+          type === "keychain"
+            ? "#c6b8ff"
+            : type === "sticker"
+              ? "#fff"
+              : type === "magnet"
+                ? "#bce8d0"
+                : "#161616";
+        roundedRect(ctx, shape.x, shape.y, shape.w, shape.h, shape.radius);
+        ctx.fill();
+        ctx.restore();
+        ctx.save();
+        roundedRect(
+          ctx,
+          shape.x + shape.border,
+          shape.y + shape.border,
+          shape.w - shape.border * 2,
+          shape.h - shape.border * 2,
+          Math.max(0, shape.radius - shape.border),
+        );
+        ctx.clip();
+        if (artDataURL) {
+          const artwork = await new Promise((resolve) => {
+            const img = new Image();
+            img.onload = () => resolve(img);
+            img.onerror = () => resolve(null);
+            img.src = artDataURL;
+          });
+          if (artwork) {
+            const scale = Math.max(
+              (shape.w - shape.border * 2) / artwork.width,
+              (shape.h - shape.border * 2) / artwork.height,
+            );
+            const w = artwork.width * scale,
+              h = artwork.height * scale;
+            ctx.drawImage(artwork, shape.x + (shape.w - w) / 2, shape.y + (shape.h - h) / 2, w, h);
+          } else {
+            ctx.fillStyle = "#bce8d0";
+            ctx.fillRect(shape.x, shape.y, shape.w, shape.h);
+          }
+        } else {
+          ctx.fillStyle =
+            type === "pin"
+              ? "#ff4f8b"
+              : type === "keychain"
+                ? "#c6b8ff"
+                : type === "sticker"
+                  ? "#ffd84d"
+                  : "#bce8d0";
+          ctx.fillRect(shape.x, shape.y, shape.w, shape.h);
+          ctx.fillStyle = "#161616";
+          ctx.textAlign = "center";
+          ctx.textBaseline = "middle";
+          ctx.font = "bold 34px Arial";
+          ctx.fillText(
+            labProducts[type].label.toUpperCase(),
+            shape.x + shape.w / 2,
+            shape.y + shape.h / 2,
+            shape.w - 30,
+          );
+        }
+        ctx.restore();
+        ctx.strokeStyle = "#161616";
+        ctx.lineWidth = shape.border;
+        roundedRect(ctx, shape.x, shape.y, shape.w, shape.h, shape.radius);
+        ctx.stroke();
+        if (type === "keychain") {
+          ctx.beginPath();
+          ctx.arc(320, 165, 42, 0, Math.PI * 2);
+          ctx.strokeStyle = "#646a70";
+          ctx.lineWidth = 18;
+          ctx.stroke();
+          ctx.beginPath();
+          ctx.arc(320, 165, 42, 0, Math.PI * 2);
+          ctx.strokeStyle = "#f6f4ef";
+          ctx.lineWidth = 5;
+          ctx.stroke();
+        }
+        if (type === "pin") {
+          ctx.fillStyle = "rgba(255,255,255,.35)";
+          ctx.beginPath();
+          ctx.ellipse(235, 205, 38, 20, -0.5, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        ctx.fillStyle = "#6a6865";
+        ctx.font = "bold 16px monospace";
+        ctx.textAlign = "center";
+        ctx.fillText("HIGH-TACK · PREVIEW", 320, 590);
+        try {
+          return canvas.toDataURL("image/jpeg", 0.82);
+        } catch (error) {
+          return artDataURL || "";
+        }
+      }
+
+      function roundedRect(ctx, x, y, w, h, radius) {
+        const r = Math.min(radius, w / 2, h / 2);
+        ctx.beginPath();
+        ctx.moveTo(x + r, y);
+        ctx.arcTo(x + w, y, x + w, y + h, r);
+        ctx.arcTo(x + w, y + h, x, y + h, r);
+        ctx.arcTo(x, y + h, x, y, r);
+        ctx.arcTo(x, y, x + w, y, r);
+        ctx.closePath();
+      }
+
+      function designInfo() {
+        const { type, qty } = readLab();
+        // quote() lives in Python; main.py exposes it as window.hightackQuote
+        const estimate = window.hightackQuote(type, qty);
+        const what = artName
+          ? 'using uploaded image "' + artName + '"'
+          : "with artwork to be provided";
+        const note =
+          "Design idea: " +
+          qty +
+          " × " +
+          labProducts[type].label +
+          ", " +
+          what +
+          ". Estimated total: " +
+          peso(estimate.total) +
+          ". Estimated delivery: " +
+          estimate.delivery +
+          ".";
+        return {
+          type,
+          label: labProducts[type].label,
+          product: labProducts[type].option,
+          qty,
+          unitPrice: estimate.unit,
+          discountRate: estimate.rate,
+          discountAmount: estimate.saved,
+          total: estimate.total,
+          delivery: estimate.delivery,
+          imageName: artName,
+          imageDataURL: artDataURL,
+          previewDataURL: "",
+          note,
+        };
+      }
+      // Gentle 3D tilt that follows the mouse (skipped for people who prefer reduced motion)
+      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        labStage.addEventListener("pointermove", (event) => {
+          const box = labStage.getBoundingClientRect();
+          const x = (event.clientX - box.left) / box.width - 0.5;
+          const y = (event.clientY - box.top) / box.height - 0.5;
+          labItem.style.setProperty("--tilt-x", -y * 14 + "deg");
+          labItem.style.setProperty("--tilt-y", x * 14 + "deg");
+        });
+        labStage.addEventListener("pointerleave", () => {
+          labItem.style.setProperty("--tilt-x", "0deg");
+          labItem.style.setProperty("--tilt-y", "0deg");
+        });
+      }
+
+      // Sends the design idea into the inquiry form, then scrolls to it
+      document.querySelector("#lab-send").addEventListener("click", async () => {
+        if (!window.hightackQuote) {
+          labStatus.textContent = "The price calculator is still loading. Please try again in a moment.";
+          return;
+        }
+        const design = designInfo();
+        const { type, note } = design;
+        design.previewDataURL = await makeItemPreview(type);
+        pendingDesign = design;
+        document.querySelector("#product").value = labProducts[type].option;
+        const message = document.querySelector("#message");
+        const existing = message.value.trim();
+        if (!existing) message.value = note;
+        else if (!existing.includes(note)) message.value = existing + "\n\n" + note;
+        labStatus.textContent = "Added to the inquiry form below ✓";
+        document.querySelector("#contact").scrollIntoView(); // smooth scrolling comes from the CSS
+      });
+
+      // ---------- Chat between customer and owner (demo: saved in this browser only) ----------
+      const CHAT_KEY = "hightack-chat-v1";
+      const chatSection = document.querySelector("#chat");
+      const chatPanelContent = document.querySelector("#chat-panel-content");
+      chatPanelContent.append(chatSection);
+      chatSection.classList.add("chat-section-in-panel");
+      const chatLog = document.querySelector("#chat-log");
+      const chatQuick = document.querySelector("#chat-quick");
+      const chatInput = document.querySelector("#chat-input");
+      const chatLive = document.querySelector("#chat-live");
+
+      const quickReplies = {
+        customer: [
+          "What are your prices?",
+          "How long does production take?",
+          "Can I send my own artwork?",
+          "Is there a minimum order?",
+          "Do you deliver?",
+        ],
       };
-      productDialog.close();
-    });
+      const welcome = () => ({
+        from: "owner",
+        text: "Hi! Welcome to high-TACK. Tell us what you would like to make and the owner will reply here.",
+        t: Date.now(),
+        seen: true,
+      });
 
-    // Button 2: select this product in the inquiry form and scroll there
-    document.querySelector('#dialog-inquiry').addEventListener('click', () => {
-      const card = currentCard;
-      afterClose = () => {
-        document.querySelector('#product').value = card.dataset.product;
-        document.querySelector('#contact').scrollIntoView();
+      const role = "customer";
+      let chatMsgs = [];
+      try {
+        chatMsgs = JSON.parse(localStorage.getItem(CHAT_KEY)) || [];
+      } catch (error) {
+        chatMsgs = [];
+      }
+      if (!Array.isArray(chatMsgs) || !chatMsgs.length) chatMsgs = [welcome()];
+
+      const saveChat = () => {
+        try {
+          localStorage.setItem(CHAT_KEY, JSON.stringify(chatMsgs.slice(-40)));
+        } catch (error) {
+          /* storage full or blocked */
+        }
       };
-      productDialog.close();
-    });
+      const clock = (t) =>
+        new Date(t).toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
 
-    // ---------- Seamless slogan strip ----------
-    // The CSS animation slides the track by 25%, so we repeat the set 8 times
-    // (25% = exactly 2 sets), which makes the loop invisible.
-    const marqueeTrack = document.querySelector('.marquee-track');
-    marqueeTrack.innerHTML = marqueeTrack.innerHTML.repeat(8);
+      function renderChat(typing) {
+        chatLog.replaceChildren();
+        chatMsgs.forEach((m) => {
+          const wrap = document.createElement("div");
+          wrap.className = "msg" + (m.from === role ? " mine" : "");
+          const bubble = document.createElement("div");
+          bubble.className = "msg-bubble";
+          if (typeof m.img === "string" && m.img.startsWith("data:image/")) {
+            const img = document.createElement("img");
+            img.className = "msg-img";
+            img.src = m.img;
+            img.alt = "Attached image";
+            bubble.append(img);
+          }
+          if (m.design) {
+            const tag = document.createElement("div");
+            tag.className = "msg-design";
+            const dot = document.createElement("i");
+            dot.style.background = String(m.design.bg).replace(/[^#\w]/g, "");
+            tag.append(dot, "Design from the Lab");
+            bubble.append(tag);
+          }
+          if (m.text) bubble.append(m.text);
+          const meta = document.createElement("div");
+          meta.className = "msg-meta";
+          meta.textContent =
+            (m.from === "owner" ? "Owner" : "Customer") +
+            " · " +
+            clock(m.t) +
+            (m.from === "customer" ? (m.seen ? " · ✓✓ Seen" : " · ✓ Sent") : "");
+          wrap.append(bubble, meta);
+          chatLog.append(wrap);
+        });
+        if (typing) {
+          const wrap = document.createElement("div");
+          wrap.className = "msg";
+          wrap.innerHTML =
+            '<div class="msg-bubble typing" aria-label="Owner is typing"><span></span><span></span><span></span></div>';
+          chatLog.append(wrap);
+        }
+        chatLog.scrollTop = chatLog.scrollHeight;
+      }
 
-    // ---------- Video fallback ----------
-    // A missing file fires its error on the <source> tag (not the <video> tag), so we listen to both.
-    const promoVideo = document.querySelector('#promo-video');
-    const promoSource = promoVideo.querySelector('source');
-    const videoFallback = document.querySelector('#video-fallback');
-    const showVideoFallback = () => {
-      promoVideo.hidden = true;
-      videoFallback.hidden = false;
-    };
-    promoSource.addEventListener('error', showVideoFallback);
-    promoVideo.addEventListener('error', showVideoFallback);
-  </script>
+      function renderQuick() {
+        chatQuick.replaceChildren();
+        quickReplies[role].forEach((text) => {
+          const chip = document.createElement("button");
+          chip.type = "button";
+          chip.className = "chat-chip";
+          chip.textContent = text;
+          chip.addEventListener("click", () => {
+            chatInput.value = text;
+            sendCurrent();
+          });
+          chatQuick.append(chip);
+        });
+      }
 
-  <script type="py">
-"""PyScript interactions for high-TACK's frontend-only inquiry experience."""
-import re
-from pyscript import document, when
+      function pushMsg(from, data) {
+        const msg = Object.assign({ from, t: Date.now(), seen: from === "owner" }, data);
+        chatMsgs.push(msg);
+        saveChat();
+        renderChat();
+        chatLive.textContent =
+          (from === "owner" ? "Owner: " : "Customer: ") + (msg.text || "sent an attachment");
+      }
 
-FIELD_IDS = ["name", "email", "product", "message"]
+      function sendCurrent() {
+        const text = chatInput.value.trim();
+        if (!text) return;
+        chatInput.value = "";
+        pushMsg("customer", { text });
+      }
 
-def set_feedback(message, kind):
-    feedback = document.querySelector("#form-feedback")
-    feedback.innerText = message
-    feedback.className = f"form-feedback {kind}"
+      document.querySelector("#chat-form").addEventListener("submit", (event) => {
+        event.preventDefault();
+        sendCurrent();
+      });
 
-def mark_invalid(invalid_ids):
-    """Flag problem fields for screen readers and put the cursor in the first one."""
-    for field_id in FIELD_IDS:
-        field = document.querySelector("#" + field_id)
-        if field_id in invalid_ids:
-            field.setAttribute("aria-invalid", "true")
-        else:
-            field.removeAttribute("aria-invalid")
-    if invalid_ids:
-        document.querySelector("#" + invalid_ids[0]).focus()
+      // The owner replies from a separate page; show new messages as soon as they are saved
+      window.addEventListener("storage", (event) => {
+        if (event.key !== CHAT_KEY) return;
+        try {
+          chatMsgs = JSON.parse(event.newValue) || [];
+        } catch (error) {
+          return;
+        }
+        if (!Array.isArray(chatMsgs) || !chatMsgs.length) chatMsgs = [welcome()];
+        renderChat();
+      });
 
-@when("submit", "#inquiry-form")
-def validate_inquiry(event):
-    event.preventDefault()
-    name = document.querySelector("#name").value.strip()
-    email = document.querySelector("#email").value.strip()
-    product = document.querySelector("#product").value.strip()
-    message = document.querySelector("#message").value.strip()
+      document.querySelector("#chat-clear").addEventListener("click", () => {
+        chatMsgs = [welcome()];
+        saveChat();
+        renderChat();
+      });
 
-    missing = []
-    missing_ids = []
-    if not name:
-        missing.append("your name")
-        missing_ids.append("name")
-    if not email:
-        missing.append("your email")
-        missing_ids.append("email")
-    if not product:
-        missing.append("a product")
-        missing_ids.append("product")
-    if not message:
-        missing.append("a few details")
-        missing_ids.append("message")
-    if missing:
-        mark_invalid(missing_ids)
-        set_feedback("Please add " + ", ".join(missing) + ".", "error")
-        return
-    if not re.match(r"^[^@\s]+@[^@\s]+\.[^@\s]+$", email):
-        mark_invalid(["email"])
-        set_feedback("That email looks a little off — please check it and try again.", "error")
-        return
+      renderChat();
+      renderQuick();
 
-    mark_invalid([])
-    set_feedback(f"Thanks, {name}! We've noted your inquiry about: {product}. This frontend demo is ready for a backend or form-service connection.", "success")
-    document.querySelector("#inquiry-form").reset()
+      const marqueeTrack = document.querySelector(".marquee-track");
+      marqueeTrack.innerHTML = marqueeTrack.innerHTML.repeat(8);
 
-@when("click", ".js-customize")
-def choose_product(event):
-    product_name = event.currentTarget.getAttribute("data-product")
-    document.querySelector("#product").value = product_name
-    # The smooth scrolling comes from "scroll-behavior: smooth" in style.css
-    document.querySelector("#contact").scrollIntoView()
-</script>
-</body>
+      // ---------- Video fallback ----------
+      // A missing file fires its error on the <source> tag (not the <video> tag), so we listen to both.
+      const promoVideo = document.querySelector("#promo-video");
+      const promoSource = promoVideo.querySelector("source");
+      const videoFallback = document.querySelector("#video-fallback");
+      const showVideoFallback = () => {
+        promoVideo.hidden = true;
+        videoFallback.hidden = false;
+      };
+      promoSource.addEventListener("error", showVideoFallback);
+      promoVideo.addEventListener("error", showVideoFallback);
+
+      // ---------- Right-side customer desk: saved inquiries + owner chat ----------
+      const INQUIRY_KEY = "hightack-inquiries-v1";
+      const sidePanel = document.querySelector("#side-panel");
+      const panelBackdrop = document.querySelector("#panel-backdrop");
+      const panelTitle = document.querySelector("#side-panel-title");
+      const inquiryPanelContent = document.querySelector("#inquiry-panel-content");
+      const inquiryList = document.querySelector("#inquiry-list");
+      const inquiryCount = document.querySelector("#inquiry-count");
+      const panelTriggers = document.querySelectorAll("[data-panel]");
+      let activePanel = "";
+      let savedInquiries = [];
+      try {
+        savedInquiries = JSON.parse(localStorage.getItem(INQUIRY_KEY)) || [];
+      } catch (error) {
+        savedInquiries = [];
+      }
+      if (!Array.isArray(savedInquiries)) savedInquiries = [];
+
+      const DAY = 24 * 60 * 60 * 1000;
+      let editingId = null;
+      const saveInquiries = () => {
+        try {
+          localStorage.setItem(INQUIRY_KEY, JSON.stringify(savedInquiries));
+        } catch (error) {
+          /* storage blocked */
+        }
+      };
+      const timeLeft = (item) => DAY - (Date.now() - new Date(item.createdAt).getTime());
+      const leftText = (ms) => {
+        const m = Math.max(1, Math.ceil(ms / 60000));
+        return Math.floor(m / 60) + "h " + (m % 60) + "m";
+      };
+
+      function buildEditForm(item) {
+        const form = document.createElement("form");
+        form.className = "inquiry-edit";
+        const field = (label, el) => {
+          const l = document.createElement("label");
+          l.append(label, el);
+          form.append(l);
+          return el;
+        };
+        const name = field(
+          "Name",
+          Object.assign(document.createElement("input"), {
+            type: "text",
+            value: item.name,
+            maxLength: 80,
+          }),
+        );
+        const email = field(
+          "Email",
+          Object.assign(document.createElement("input"), {
+            type: "email",
+            value: item.email,
+            maxLength: 120,
+          }),
+        );
+        const product = field("Product", document.createElement("select"));
+        document.querySelectorAll("#product option").forEach((opt) => {
+          if (!opt.value) return;
+          product.append(
+            Object.assign(document.createElement("option"), {
+              value: opt.value,
+              textContent: opt.textContent,
+              selected: opt.value === item.product,
+            }),
+          );
+        });
+        const message = field(
+          "Details",
+          Object.assign(document.createElement("textarea"), {
+            value: item.message,
+            maxLength: 1000,
+          }),
+        );
+        const error = document.createElement("p");
+        error.className = "inquiry-edit-error";
+        const actions = document.createElement("div");
+        actions.className = "inquiry-edit-actions";
+        const save = Object.assign(document.createElement("button"), {
+          type: "submit",
+          className: "inquiry-action",
+          textContent: "Save changes",
+        });
+        const cancel = Object.assign(document.createElement("button"), {
+          type: "button",
+          className: "inquiry-action",
+          textContent: "Cancel",
+        });
+        cancel.addEventListener("click", () => {
+          editingId = null;
+          renderInquiries();
+        });
+        actions.append(save, cancel);
+        form.append(error, actions);
+        form.addEventListener("submit", (event) => {
+          event.preventDefault();
+          if (timeLeft(item) <= 0) {
+            editingId = null;
+            renderInquiries();
+            return;
+          }
+          if (
+            !name.value.trim() ||
+            !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.value.trim()) ||
+            !product.value ||
+            !message.value.trim()
+          ) {
+            error.textContent = "Please fill in every field and use a valid email.";
+            return;
+          }
+          Object.assign(item, {
+            name: name.value.trim(),
+            email: email.value.trim(),
+            product: product.value,
+            message: message.value.trim(),
+            editedAt: new Date().toISOString(),
+          });
+          saveInquiries();
+          editingId = null;
+          renderInquiries();
+        });
+        return form;
+      }
+
+      function renderInquiries() {
+        inquiryCount.textContent = String(savedInquiries.length);
+        inquiryList.replaceChildren();
+        if (!savedInquiries.length) {
+          const empty = document.createElement("div");
+          empty.className = "inquiry-empty";
+          empty.innerHTML =
+            '<span aria-hidden="true">✳</span><strong>No inquiries yet</strong><p>When you send the inquiry form, a copy will appear here.</p>';
+          inquiryList.append(empty);
+          return;
+        }
+        [...savedInquiries].reverse().forEach((item) => {
+          const card = document.createElement("article");
+          card.className = "inquiry-entry inquiry-entry-clickable";
+          card.tabIndex = 0;
+          card.setAttribute("role", "button");
+          card.setAttribute(
+            "aria-label",
+            "View complete inquiry for " + (item.product || "custom item"),
+          );
+          card.setAttribute("aria-expanded", String(expandedInquiryId === item.id));
+          const isReceived = item.status === "received";
+          // once the owner confirms the order, it is completed and can no longer be changed
+          const canChange = !isReceived && timeLeft(item) > 0;
+          const top = document.createElement("div");
+          top.className = "inquiry-entry-top";
+          const product = document.createElement("strong");
+          product.textContent = item.product || "General inquiry";
+          const date = document.createElement("time");
+          date.textContent = new Date(item.createdAt).toLocaleString([], {
+            month: "short",
+            day: "numeric",
+            hour: "numeric",
+            minute: "2-digit",
+          });
+          top.append(product, date);
+          const statusLine = document.createElement("p");
+          statusLine.className = "inquiry-status " + (isReceived ? "is-received" : "is-pending");
+          statusLine.textContent = isReceived
+            ? "✓ ORDER COMPLETED · Received " +
+              (item.receivedAt
+                ? new Date(item.receivedAt).toLocaleString([], {
+                    month: "short",
+                    day: "numeric",
+                    hour: "numeric",
+                    minute: "2-digit",
+                  })
+                : "")
+            : "● IN PROGRESS · Waiting for the owner to confirm";
+          if (editingId === item.id && canChange) {
+            card.append(top, statusLine, buildEditForm(item));
+            inquiryList.append(card);
+            return;
+          }
+          const name = document.createElement("p");
+          name.className = "inquiry-entry-name";
+          name.textContent = item.name + " · " + item.email;
+          let custom = null;
+          if (item.customization) {
+            custom = document.createElement("p");
+            custom.className = "inquiry-customization";
+            custom.textContent = "CUSTOM ITEM · " + item.customization;
+          }
+          const message = document.createElement("p");
+          message.className = "inquiry-entry-message";
+          message.textContent = item.message;
+          const foot = document.createElement("div");
+          foot.className = "inquiry-entry-foot";
+          const note = document.createElement("span");
+          note.className = "inquiry-entry-note";
+          note.textContent =
+            (item.editedAt ? "Edited · " : "") +
+            (isReceived
+              ? "Order completed: no further changes"
+              : canChange
+                ? "You can edit or cancel for " + leftText(timeLeft(item)) + " more"
+                : "Locked: changes are only allowed within 1 day");
+          foot.append(note);
+          if (canChange) {
+            const edit = Object.assign(document.createElement("button"), {
+              type: "button",
+              className: "inquiry-action",
+              textContent: "Edit",
+            });
+            edit.addEventListener("click", () => {
+              if (timeLeft(item) <= 0) {
+                renderInquiries();
+                return;
+              }
+              editingId = item.id;
+              renderInquiries();
+            });
+            const del = Object.assign(document.createElement("button"), {
+              type: "button",
+              className: "inquiry-action danger",
+              textContent: "Cancel inquiry",
+            });
+            del.addEventListener("click", () => {
+              if (timeLeft(item) <= 0) {
+                renderInquiries();
+                return;
+              }
+              if (!confirm("Cancel and delete this inquiry?")) return;
+              savedInquiries = savedInquiries.filter((entry) => entry.id !== item.id);
+              saveInquiries();
+              renderInquiries();
+            });
+            foot.append(edit, del);
+          }
+          card.append(top, statusLine, name);
+          if (custom) card.append(custom);
+          const previewHint = document.createElement("p");
+          previewHint.className = "inquiry-open-hint";
+          previewHint.textContent =
+            expandedInquiryId === item.id
+              ? "− Hide complete details"
+              : "+ View complete order details";
+          card.append(previewHint);
+
+          if (expandedInquiryId === item.id) {
+            const details = document.createElement("div");
+            details.className = "inquiry-full-details";
+            const detailTitle = document.createElement("h3");
+            detailTitle.textContent = "Complete order details";
+            details.append(detailTitle);
+            const design = item.design || null;
+            if (design && (design.previewDataURL || design.imageDataURL)) {
+              const figure = document.createElement("figure");
+              figure.className = "inquiry-design-preview";
+              const img = document.createElement("img");
+              img.src = design.previewDataURL || design.imageDataURL;
+              img.alt =
+                "Preview of customized " +
+                (design.label || item.product) +
+                " made in Build it. Preview it.";
+              const caption = document.createElement("figcaption");
+              caption.textContent = design.imageName
+                ? "Customized item preview · " + design.imageName
+                : "Customized item preview from Build it. Preview it.";
+              figure.append(img, caption);
+              details.append(figure);
+            } else {
+              const noImage = document.createElement("p");
+              noImage.className = "inquiry-no-preview";
+              noImage.textContent = design
+                ? "No image was uploaded for this design. Artwork can be provided later."
+                : "No saved Design Lab preview for this inquiry.";
+              details.append(noImage);
+            }
+            const rows = document.createElement("dl");
+            rows.className = "inquiry-detail-grid";
+            const fields = [
+              ["Customer", item.name || "—"],
+              ["Email", item.email || "—"],
+              ["Product", (design && design.label) || item.product || "—"],
+              ["Quantity", design ? String(design.qty) + " item(s)" : "Not specified"],
+              ["Price per piece", design ? peso(design.unitPrice) : "To be confirmed"],
+              [
+                "Bulk discount",
+                design && design.discountRate
+                  ? Math.round(design.discountRate * 100) +
+                    "% (" +
+                    peso(design.discountAmount) +
+                    ")"
+                  : "None estimated",
+              ],
+              ["Estimated total", design ? peso(design.total) : "To be confirmed"],
+              ["Estimated pickup", design ? design.delivery : "To be confirmed"],
+              ["Order status", isReceived ? "Completed / received" : "In progress"],
+              [
+                "Received on",
+                isReceived && item.receivedAt ? new Date(item.receivedAt).toLocaleString() : "—",
+              ],
+              ["Submitted", new Date(item.createdAt).toLocaleString()],
+              [
+                "Last edited",
+                item.editedAt ? new Date(item.editedAt).toLocaleString() : "Not edited",
+              ],
+            ];
+            fields.forEach(([label, value]) => {
+              const row = document.createElement("div");
+              const dt = document.createElement("dt");
+              dt.textContent = label;
+              const dd = document.createElement("dd");
+              dd.textContent = value;
+              row.append(dt, dd);
+              rows.append(row);
+            });
+            details.append(rows);
+            const messageLabel = document.createElement("h4");
+            messageLabel.className = "inquiry-message-heading";
+            messageLabel.textContent = "Customer message";
+            const fullMessage = document.createElement("p");
+            fullMessage.className = "inquiry-entry-message inquiry-full-message";
+            fullMessage.textContent = item.message || "No additional message.";
+            details.append(messageLabel, fullMessage);
+            card.append(details);
+          }
+          card.append(foot);
+          const toggleDetails = () => {
+            expandedInquiryId = expandedInquiryId === item.id ? null : item.id;
+            renderInquiries();
+          };
+          card.addEventListener("click", (event) => {
+            if (!event.target.closest("button, input, textarea, select, form")) toggleDetails();
+          });
+          card.addEventListener("keydown", (event) => {
+            if ((event.key === "Enter" || event.key === " ") && event.target === card) {
+              event.preventDefault();
+              toggleDetails();
+            }
+          });
+          inquiryList.append(card);
+        });
+      }
+
+      function openPanel(which) {
+        activePanel = which;
+        sidePanel.classList.add("is-open");
+        sidePanel.setAttribute("aria-hidden", "false");
+        panelBackdrop.hidden = false;
+        document.body.classList.add("panel-open");
+        inquiryPanelContent.hidden = which !== "inquiries";
+        chatPanelContent.hidden = which !== "chat";
+        panelTitle.textContent = which === "chat" ? "Chat with the owner" : "Your inquiries";
+        panelTriggers.forEach((button) => {
+          const selected = button.dataset.panel === which;
+          button.classList.toggle("is-active", selected);
+          button.setAttribute("aria-expanded", String(selected));
+        });
+        if (which === "chat") {
+          renderChat();
+          chatInput.focus({ preventScroll: true });
+        } else renderInquiries();
+      }
+      function closePanel() {
+        activePanel = "";
+        sidePanel.classList.remove("is-open");
+        sidePanel.setAttribute("aria-hidden", "true");
+        panelBackdrop.hidden = true;
+        document.body.classList.remove("panel-open");
+        panelTriggers.forEach((button) => {
+          button.classList.remove("is-active");
+          button.setAttribute("aria-expanded", "false");
+        });
+      }
+      document.querySelectorAll('a[href="#chat"]').forEach((link) =>
+        link.addEventListener("click", (event) => {
+          event.preventDefault();
+          openPanel("chat");
+        }),
+      );
+      panelTriggers.forEach((button) =>
+        button.addEventListener("click", () => {
+          const which = button.dataset.panel;
+          if (activePanel === which) closePanel();
+          else openPanel(which);
+          setMenu(false);
+        }),
+      );
+      document.querySelector("#panel-close").addEventListener("click", closePanel);
+      panelBackdrop.addEventListener("click", closePanel);
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && activePanel) closePanel();
+      });
+      document.querySelector("#panel-new-inquiry").addEventListener("click", closePanel);
+
+      // Save only complete, valid inquiries. This is browser-local demo storage, not a shared server inbox.
+      document.querySelector("#inquiry-form").addEventListener(
+        "submit",
+        (event) => {
+          const name = document.querySelector("#name").value.trim();
+          const email = document.querySelector("#email").value.trim();
+          const product = document.querySelector("#product").value.trim();
+          const message = document.querySelector("#message").value.trim();
+          if (!name || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email) || !product || !message) return;
+          const designMatch = message.match(/Design idea:[^\n]*/i);
+          const customization = designMatch ? designMatch[0].replace(/^Design idea:\s*/i, "") : "";
+          const design =
+            pendingDesign && pendingDesign.product === product ? { ...pendingDesign } : null;
+          savedInquiries.push({
+            id: Date.now(),
+            createdAt: new Date().toISOString(),
+            name,
+            email,
+            product,
+            message,
+            customization,
+            design,
+          });
+          pendingDesign = null;
+          savedInquiries = savedInquiries.slice(-100);
+          saveInquiries();
+          renderInquiries();
+        },
+        true,
+      );
+      renderInquiries();
+
+      // The owner page saves to the same storage. When it marks an order as received,
+      // the browser fires a "storage" event here and the list refreshes by itself.
+      window.addEventListener("storage", (event) => {
+        if (event.key !== INQUIRY_KEY) return;
+        try {
+          savedInquiries = JSON.parse(event.newValue) || [];
+        } catch (error) {
+          return;
+        }
+        if (!Array.isArray(savedInquiries)) savedInquiries = [];
+        renderInquiries();
+      });
+      // keep the "time left" and locked states fresh while the panel is open
+      setInterval(() => {
+        if (activePanel === "inquiries" && editingId === null) renderInquiries();
+      }, 60000);
+    </script>
+
+    <script type="py" src="./main.py"></script>
+  </body>
 </html>
