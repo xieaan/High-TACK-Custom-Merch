@@ -43,12 +43,17 @@
     <!-- The "tack thread" scroll progress bar -->
     <div class="tack-progress" aria-hidden="true"><span></span></div>
 
+    <!-- Makes the black background of img/logo.jpe transparent, so the logo sits cleanly on the page -->
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true" focusable="false">
+      <filter id="logo-key" color-interpolation-filters="sRGB">
+        <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  18 18 18 0 -1" />
+      </filter>
+    </svg>
+
     <header class="site-header">
       <nav class="nav-shell" aria-label="Main navigation">
         <a class="brand-lockup" href="#home" aria-label="high-TACK Custom Merch home">
-          <span class="brand-dot" aria-hidden="true"></span>
-          <span class="brand-wordmark">high-<strong>TACK</strong></span>
-          <span class="brand-subline">custom merch</span>
+          <span class="brand-logo"><img src="img/logo.jpe" alt="high-TACK Custom Merch" width="1742" height="903" /></span>
         </a>
         <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
           <span></span><span></span><span></span>
@@ -604,11 +609,9 @@
 
     <footer class="site-footer">
       <div class="footer-main">
-        <a class="brand-lockup footer-brand" href="#home"
-          ><span class="brand-dot" aria-hidden="true"></span
-          ><span class="brand-wordmark">high-<strong>TACK</strong></span
-          ><span class="brand-subline">custom merch</span></a
-        >
+        <a class="brand-lockup footer-brand" href="#home" aria-label="high-TACK Custom Merch home">
+          <span class="brand-logo"><img src="img/logo.jpe" alt="high-TACK Custom Merch" width="1742" height="903" /></span>
+        </a>
         <p class="footer-tagline">Your Creativity. Our Craft.<br />Your Custom Merch.</p>
         <a class="back-to-top" href="#home">Back to top <span aria-hidden="true">↑</span></a>
       </div>
