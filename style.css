@@ -2899,3 +2899,39 @@ body.panel-open {
 .inquiry-entry:has(.inquiry-status.is-received) {
   border-color: #1f7a4d;
 }
+
+/* ===== LOGO IMAGE (img/logo.jpe) ===== */
+/* The photo has wide black margins, so the wrapper crops it to the logo itself. */
+.brand-logo {
+  display: block;
+  position: relative;
+  width: 184px;
+  aspect-ratio: 1346 / 345;
+  overflow: hidden;
+}
+.brand-logo img {
+  position: absolute;
+  top: -90.43%;
+  left: -15.38%;
+  width: 129.42%;
+  height: auto;
+  max-width: none;
+  filter: url(#logo-key);
+}
+.brand-lockup {
+  display: block;
+}
+/* The logo's dark lettering needs a light backdrop on the dark footer */
+.footer-brand {
+  width: fit-content;
+  padding: 10px 16px;
+  background: var(--paper);
+}
+.footer-brand .brand-logo {
+  width: 190px;
+}
+@media (max-width: 480px) {
+  .brand-logo {
+    width: 150px;
+  }
+}
